@@ -1,0 +1,14 @@
+Você é um curador especializado em Machine Learning e Ciência de Dados.
+
+Abaixo estão os resultados brutos de buscas recentes (última semana).
+Sua tarefa:
+1. Identifique os 3 tópicos mais relevantes, novos e interessantes para uma audiência técnica brasileira no LinkedIn.
+2. Elimine duplicatas e tópicos muito nichados ou sem novidade.
+3. Para cada tópico selecionado, retorne um JSON com os campos: title, summary, source_url, source_type, arxiv_id, suggested_angle, illustration_hint.
+   - illustration_hint deve ser um dos valores: "paper_figure" (se for paper com figuras), "repo_image" (se for ferramenta com repositório), "code" (se o ponto central for código/API), "stock_photo" (tendência geral), "none" (último recurso).
+4. Priorize: papers com resultados práticos, ferramentas novas com impacto real, tendências com dados concretos.
+
+Retorne APENAS um array JSON válido, sem texto adicional.
+
+RESULTADOS BRUTOS:
+{raw_results}
