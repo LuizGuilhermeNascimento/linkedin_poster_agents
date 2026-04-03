@@ -1,8 +1,6 @@
-# SPEC.md — LinkedIn ML/DS Content Pipeline
-
 ## Visão Geral
 
-Pipeline automatizado para publicação de 3 posts semanais no LinkedIn sobre Machine Learning e Ciência de Dados. O sistema é composto por 4 agentes Python especializados, orquestrados por um script central com agendamento via `schedule` ou GitHub Actions.
+Pipeline automatizado para geração de 3 posts semanais sobre Machine Learning e Ciência de Dados. O sistema é composto por 2 agentes Python especializados orquestrados por um script central. Posts gerados são salvos localmente em pastas organizadas — a publicação no LinkedIn fica a cargo do usuário.
 
 ---
 
@@ -19,25 +17,25 @@ linkedin-ml-pipeline/
 ├── agents/
 │   ├── __init__.py
 │   ├── researcher.py        # Agente 1: busca e seleciona tópicos
-│   ├── writer.py            # Agente 2: gera texto e ilustração
-│   └── scheduler.py         # Agente 3: agenda/publica no LinkedIn
+│   └── writer.py            # Agente 2: gera texto e ilustração
 ├── tools/
 │   ├── __init__.py
 │   ├── tavily_search.py     # Wrapper da Tavily API
 │   ├── arxiv_search.py      # Wrapper da arXiv API
 │   ├── image_fetcher.py     # Busca imagens prontas (arXiv, HuggingFace, Unsplash, GitHub)
-│   ├── code_screenshot.py   # Gera print de código via Playwright (carbon.now.sh)
-│   └── linkedin_api.py      # Wrapper da LinkedIn API (OAuth 2.0)
+│   └── code_screenshot.py   # Gera print de código via Playwright (carbon.now.sh)
 ├── prompts/
 │   ├── researcher_prompt.txt
 │   └── writer_prompt.txt
-├── output/
-│   ├── queue/               # Posts gerados aguardando publicação (JSON)
-│   └── published/           # Posts já publicados (JSON, para log)
-└── tests/
-    ├── test_researcher.py
-    ├── test_writer.py
-    └── test_scheduler.py
+└── output/
+    ├── YYYY-WW/             # Uma pasta por semana (ex: 2025-28/)
+    │   ├── post_1/
+    │   │   ├── post.txt     # Texto final do post
+    │   │   ├── image.png    # Imagem (se houver)
+    │   │   └── meta.json    # Metadados completos (ResearchResult + PostDraft)
+    │   ├── post_2/
+    │   └── post_3/
+    └── ...
 ```
 
 ---
@@ -51,16 +49,11 @@ ANTHROPIC_API_KEY=
 # Tavily
 TAVILY_API_KEY=
 
-# LinkedIn
-LINKEDIN_CLIENT_ID=
-LINKEDIN_CLIENT_SECRET=
-LINKEDIN_ACCESS_TOKEN=       # Token de longa duração (60 dias, renovável)
-LINKEDIN_PERSON_URN=         # urn:li:person:XXXXXXXX
+# Unsplash (opcional — só necessário se illustration_hint="stock_photo")
+UNSPLASH_ACCESS_KEY=
 
 # Configurações da pipeline
 POSTS_PER_WEEK=3
-SCHEDULE_DAYS=monday,wednesday,friday
-SCHEDULE_TIME=09:00           # Horário de publicação (fuso: America/Sao_Paulo)
 ```
 
 ---
@@ -85,7 +78,7 @@ Buscar, filtrar e selecionar os tópicos mais relevantes da semana. Retorna uma 
 2. Buscar 10 papers recentes no arXiv (cs.LG + cs.AI)
 3. Consolidar resultados em lista única
 4. Enviar lista para Claude API (claude-sonnet-4-20250514) para:
-   - Deduplificar
+   - Deduplicar
    - Ranquear por relevância e novidade
    - Sugerir ângulo editorial para cada item
    - Classificar tipo de post: paper | tool | tutorial | trend
@@ -112,7 +105,7 @@ class ResearchResult:
 ## Agente 2 — Writer (`agents/writer.py`)
 
 ### Responsabilidade
-Receber um `ResearchResult` e produzir o conteúdo final do post: texto formatado para LinkedIn + ilustração.
+Receber um `ResearchResult` e produzir o conteúdo final do post: texto formatado para LinkedIn + ilustração. Salvar tudo localmente.
 
 ### Fluxo
 
@@ -134,19 +127,21 @@ Receber um `ResearchResult` e produzir o conteúdo final do post: texto formatad
    "code"
    └─ 1. Claude API gera um snippet Python relevante e autocontido (max 20 linhas)
       2. Playwright abre carbon.now.sh com o código via URL encode
-      3. Screenshot salvo como PNG em output/queue/images/
+      3. Screenshot salvo como image.png
 
    "stock_photo"
    └─ 1. Buscar imagem no Unsplash (API gratuita, 50 req/hora)
-         Query: tema do post em inglês (ex: "neural network", "data pipeline")
       2. Baixar tamanho "regular" (1080px) via link direto
-      3. Atribuição adicionada nos metadados do PostDraft (não precisa aparecer no post)
+      3. Atribuição registrada em meta.json
 
    "none"
-   └─ Publicar post apenas com texto (sem imagem)
+   └─ Salvar post apenas com texto (sem image.png)
 
-4. Salvar PostDraft em output/queue/ como arquivo JSON
-   (imagem salva em output/queue/images/{post_id}.png)
+4. Criar pasta de destino: output/YYYY-WW/post_N/
+5. Salvar os 3 arquivos:
+   - post.txt  → texto final pronto para copiar e colar no LinkedIn
+   - image.png → ilustração (se houver)
+   - meta.json → metadados completos (ver PostDraft abaixo)
 ```
 
 ### Regras editoriais (embutir no writer_prompt.txt)
@@ -161,49 +156,21 @@ Receber um `ResearchResult` e produzir o conteúdo final do post: texto formatad
 - **Emojis**: usar com moderação (1–3 por post)
 - **Idioma**: Português brasileiro
 
-### Schema de saída (`PostDraft`)
+### Schema de saída (`PostDraft`) — salvo em `meta.json`
 
 ```python
 @dataclass
 class PostDraft:
     id: str                        # UUID gerado na criação
     created_at: str                # ISO 8601
+    week: str                      # Ex: "2025-28" (ano-semana ISO)
     research: ResearchResult       # Referência ao input
     text: str                      # Texto final do post
-    image_path: str | None         # Caminho local da imagem (output/queue/images/)
+    image_path: str | None         # Caminho relativo: "output/2025-28/post_1/image.png"
     image_url: str | None          # URL pública de origem (paper, repo, Unsplash)
     image_credit: str | None       # Atribuição (ex: "Unsplash / @username" ou "arXiv:2401.12345")
-    scheduled_for: str | None      # ISO 8601 — preenchido pelo Scheduler
-    status: str                    # "draft" | "scheduled" | "published" | "failed"
+    status: str                    # "draft" (único valor — publicação é manual)
 ```
-
----
-
-## Agente 3 — Scheduler (`agents/scheduler.py`)
-
-### Responsabilidade
-Gerenciar a fila de posts e publicar no LinkedIn no horário configurado.
-
-### Fluxo
-
-```
-1. Ler todos os JSONs em output/queue/ com status="draft"
-2. Atribuir datas de publicação respeitando SCHEDULE_DAYS e SCHEDULE_TIME
-3. No horário agendado:
-   a. Se post tem imagem local → fazer upload via LinkedIn Asset API (registerUpload)
-   b. Publicar post via POST /v2/ugcPosts com texto + asset (se houver)
-   c. Mover JSON para output/published/ e atualizar status="published"
-   d. Logar resultado (sucesso/falha)
-```
-
-### LinkedIn API — endpoints utilizados
-
-```
-POST https://api.linkedin.com/v2/assets?action=registerUpload   # Upload de imagem
-POST https://api.linkedin.com/v2/ugcPosts                       # Publicar post
-```
-
-> ⚠️ **Atenção**: O token de acesso LinkedIn expira em 60 dias. Implementar lógica de refresh ou alerta por e-mail/log quando faltarem 10 dias para expirar.
 
 ---
 
@@ -212,35 +179,44 @@ POST https://api.linkedin.com/v2/ugcPosts                       # Publicar post
 ### Modos de execução
 
 ```bash
-# Gerar 3 posts e adicionar à fila (não publica ainda)
+# Gerar 3 posts da semana e salvar em output/YYYY-WW/
 python main.py --generate
 
-# Publicar posts agendados para hoje
-python main.py --publish
-
-# Rodar pipeline completa: gerar + publicar
-python main.py --run
-
-# Modo contínuo com schedule interno
-python main.py --daemon
+# Forçar regeneração mesmo que a pasta da semana já exista
+python main.py --generate --force
 ```
 
-### Fluxo principal (`--run`)
+### Fluxo principal (`--generate`)
 
 ```python
 def run_pipeline():
+    week_label = get_current_week()          # Ex: "2025-28"
+    output_dir = Path(f"output/{week_label}")
+
     # 1. Researcher busca e seleciona top 3 tópicos da semana
     results = researcher.fetch_weekly_topics(n=3)
-    
-    # 2. Writer gera post para cada tópico
-    drafts = [writer.create_post(r) for r in results]
-    
-    # 3. Scheduler atribui datas e salva na fila
-    for draft in drafts:
-        scheduler.enqueue(draft)
-    
-    # 4. Log de resumo
-    log_summary(drafts)
+
+    # 2. Writer gera post + imagem para cada tópico e salva localmente
+    for i, result in enumerate(results, start=1):
+        post_dir = output_dir / f"post_{i}"
+        writer.create_post(result, output_dir=post_dir)
+
+    # 3. Log de resumo
+    log_summary(output_dir)
+```
+
+### Saída esperada no terminal
+
+```
+[2025-W28] Gerando 3 posts...
+  post_1 → "Mamba 2: arquitetura SSM supera Transformers em contextos longos" ✓
+  post_2 → "LangGraph v0.2: novo paradigma para agentes com estado" ✓
+  post_3 → "Meta lança dataset SA-1B com 1 bilhão de máscaras" ✓
+
+Salvo em: output/2025-28/
+  post_1/  post.txt  image.png  meta.json
+  post_2/  post.txt  image.png  meta.json
+  post_3/  post.txt  (sem imagem)  meta.json
 ```
 
 ---
@@ -256,8 +232,9 @@ Abaixo estão os resultados brutos de buscas recentes (última semana).
 Sua tarefa:
 1. Identifique os 3 tópicos mais relevantes, novos e interessantes para uma audiência técnica brasileira no LinkedIn.
 2. Elimine duplicatas e tópicos muito nichados ou sem novidade.
-3. Para cada tópico selecionado, retorne um JSON com os campos: title, summary, source_url, source_type, arxiv_id, suggested_angle, illustration_hint.
-   - illustration_hint deve ser um dos valores: "paper_figure" (se for paper com figuras), "repo_image" (se for ferramenta com repositório), "code" (se o ponto central for código/API), "stock_photo" (tendência geral), "none" (último recurso).
+3. Para cada tópico selecionado, retorne um JSON com os campos: title, summary, source_url,
+   source_type, arxiv_id, suggested_angle, illustration_hint.
+   - illustration_hint deve ser: "paper_figure" | "repo_image" | "code" | "stock_photo" | "none"
 4. Priorize: papers com resultados práticos, ferramentas novas com impacto real, tendências com dados concretos.
 
 Retorne APENAS um array JSON válido, sem texto adicional.
@@ -300,7 +277,6 @@ anthropic>=0.25.0
 tavily-python>=0.3.0
 requests>=2.31.0
 python-dotenv>=1.0.0
-schedule>=1.2.0
 playwright>=1.44.0          # Para screenshots de código (carbon.now.sh)
 pymupdf>=1.24.0             # Para extrair figuras de PDFs (arXiv)
 beautifulsoup4>=4.12.0      # Para extrair og:image de páginas de repositórios
@@ -309,45 +285,16 @@ dataclasses-json>=0.6.0
 feedparser>=6.0.0           # Para RSS do ProductHunt
 ```
 
----
-
-## Agendamento em Produção
-
-### Opção A — Daemon local (`--daemon`)
-Usar a lib `schedule` para rodar localmente. Simples, mas depende da máquina estar ligada.
-
-### Opção B — GitHub Actions (recomendado)
-Criar `.github/workflows/pipeline.yml` com cron:
-
-```yaml
-on:
-  schedule:
-    - cron: '0 12 * * 1,3,5'   # Segunda, quarta, sexta às 09:00 BRT (12:00 UTC)
-```
-
-Secrets configurados no repositório privado. Sem dependência de máquina local.
-
----
-
-## Ordem de Implementação Recomendada
-
-1. **Setup inicial**: estrutura de pastas, `.env`, `config.py`, `requirements.txt`
-2. **tools/tavily_search.py** + **tools/arxiv_search.py** — validar que os dados chegam
-3. **agents/researcher.py** — testar com `tests/test_researcher.py`
-4. **tools/image_fetcher.py** + **tools/code_screenshot.py** — testar cada estratégia de imagem isoladamente
-5. **agents/writer.py** — ajustar tom editorial iterativamente
-6. **tools/linkedin_api.py** — setup OAuth, testar com post rascunho
-7. **agents/scheduler.py** — testar agendamento
-8. **main.py** — integrar tudo
-9. **GitHub Actions** — deploy final
+> `schedule` removido — sem daemon, sem agendamento interno.
 
 ---
 
 ## Notas Importantes
 
-- **LinkedIn OAuth**: Criar app em https://www.linkedin.com/developers/ — solicitar as permissões `w_member_social` e `r_liteprofile`. O fluxo de obtenção do token inicial é manual (browser); após isso, o refresh pode ser automatizado.
-- **Rate limits Tavily**: plano gratuito tem 1.000 buscas/mês — suficiente para ~12 posts/mês com margem.
-- **arXiv API**: sem autenticação, sem rate limit estrito — usar `time.sleep(3)` entre chamadas por boas práticas.
-- **Unsplash API**: plano gratuito permite 50 requisições/hora — mais do que suficiente. Cadastro em https://unsplash.com/developers. Não é necessário exibir atribuição no post, mas salvar nos metadados é boa prática.
-- **carbon.now.sh**: não tem API oficial — usar Playwright para abrir o site, preencher o código via URL params e tirar screenshot. Alternativa mais simples: usar a lib `pygments` para gerar um HTML com syntax highlighting e converter para imagem com Playwright.
+- **Saída local apenas**: nenhuma credencial do LinkedIn é necessária. Os arquivos `post.txt` ficam prontos para copiar e colar diretamente na interface do LinkedIn.
+- **Organização por semana ISO**: a pasta `output/YYYY-WW/` garante histórico organizado sem risco de sobrescrever posts anteriores.
+- **Rate limits Tavily**: plano gratuito tem 1.000 buscas/mês — suficiente para ~12 rodadas/mês com margem.
+- **arXiv API**: sem autenticação — usar `time.sleep(3)` entre chamadas por boas práticas.
+- **Unsplash API**: plano gratuito permite 50 requisições/hora. Cadastro em https://unsplash.com/developers. Atribuição salva em `meta.json`.
+- **carbon.now.sh**: sem API oficial — usar Playwright com URL params. Alternativa: `pygments` para syntax highlighting em HTML, convertido para PNG via Playwright.
 - **Custo total estimado**: R$ 0/mês (todas as ferramentas usadas têm plano gratuito suficiente para a escala do projeto).
