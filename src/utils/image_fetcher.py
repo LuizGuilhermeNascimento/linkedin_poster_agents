@@ -138,13 +138,29 @@ def _extract_og_image(url: str) -> str | None:
     return None
 
 
-def _download_image(image_url: str, output_path: Path) -> bool:
-    try:
-        response = requests.get(image_url, headers=HEADERS, timeout=30)
-        response.raise_for_status()
-        img = Image.open(io.BytesIO(response.content)).convert("RGB")
-        img.save(output_path, "PNG")
-        return True
-    except Exception as exc:
-        logger.warning("Falha ao baixar imagem %s: %s", image_url, exc)
-        return False
+def _download_image(image_url: str, output_path: Path, max_retries: int = 3) -> bool:
+    import time
+
+    for attempt in range(1, max_retries + 1):
+        try:
+            response = requests.get(image_url, headers=HEADERS, timeout=30)
+            if response.status_code == 429:
+                retry_after = int(response.headers.get("Retry-After", 2 ** attempt))
+                logger.warning(
+                    "429 Too Many Requests para %s — aguardando %ds (tentativa %d/%d)",
+                    image_url, retry_after, attempt, max_retries,
+                )
+                time.sleep(retry_after)
+                continue
+            response.raise_for_status()
+            img = Image.open(io.BytesIO(response.content)).convert("RGB")
+            img.save(output_path, "PNG")
+            return True
+        except requests.HTTPError:
+            raise
+        except Exception as exc:
+            logger.warning("Falha ao baixar imagem %s: %s", image_url, exc)
+            return False
+
+    logger.warning("Falha ao baixar imagem %s após %d tentativas (429)", image_url, max_retries)
+    return False
