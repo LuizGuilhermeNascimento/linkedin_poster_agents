@@ -1,0 +1,7 @@
+"""Entry point — run with: python main.py --generate"""
+from __future__ import annotations
+
+from src.cli import main
+
+if __name__ == "__main__":
+    main()

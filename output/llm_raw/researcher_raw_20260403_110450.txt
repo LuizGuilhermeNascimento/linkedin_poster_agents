@@ -1,0 +1,58 @@
+Thinking Process:
+
+1.  **Analyze the Request:**
+    *   **Role:** ML and Data Science Curator specialized in technical Brazilian LinkedIn audience.
+    *   **Task:** Identify 3 most relevant, new, interesting topics from the provided raw search results (last week).
+    *   **Constraints:**
+        *   Remove duplicates and overly niche/low novelty topics.
+        *   Output: ONLY a valid JSON array (no markdown, no text outside JSON).
+        *   JSON Schema per item: `title`, `summary`, `source_url`, `source_type`, `arxiv_id` (if applicable/else null), `suggested_angle`, `illustration_hint`.
+        *   Priorities: Practical papers, new tools with real impact, trends with concrete data.
+    *   **Input Data:** A list of search results containing news, blog posts, and arXiv papers.
+
+2.  **Analyze the Input Data:**
+    *   *News/Aggregators:* TimesOfAI, Nature MIT, UCSD, InformationWeek, YouTube (tools), AI Weekly (lots of deals, outages, leaks), Superhuman AI newsletter, Aixploria (tools list), The Rundown AI, LinkedIn generic trends.
+    *   *Papers (arXiv):* ActionParty (video games), Steerable Visual Representations, Grounded Token Initialization, Batched Contextual Reinforcement, Beyond the Assistant Turn, Topological Effects, go-mHC, VOID (video object deletion), Taming the Exponential (Softmax surrogate), Omni123 (3D Native models).
+    *   *Frameworks/Learnings:* MLX (Apple), List of frameworks (TensorFlow, PyTorch lists - mostly generic SEO content).
+
+3.  **Filter & Select Topics (Criteria: Brazilian Technical LinkedIn, New, Relevant):**
+    *   *Topic Idea 1: AI Infrastructure & Deals Shift.* The "AI Weekly" result mentions a shift in capital from models to infrastructure ($25B in deals targeting infrastructure vs models: IBM bought Confluent, Lilly bought Insilico). This is a major trend (Data/Infra over hype). It's practical for Data Scientists/ML Engineers.
+        *   *Selection:* AI Weekly content about the shift to infrastructure/data streaming/drug discovery pipelines.
+        *   *Refinement:* Let's look for something more technical/practical from arXiv if possible, or high-impact news.
+    *   *Topic Idea 2: Efficient Reasoning & Inference Optimization.* "Batched Contextual Reinforcement" (BCR) is about efficient reasoning, reducing token usage without accuracy loss. This is huge for engineers (cost/latency). "Taming the Exponential" is about integer-native edge inference (AMD AI Engines). Both are strong candidates. Let's pick the one with broader appeal or more concrete engineering impact. BCR relates directly to LLM cost-efficiency which is a hot topic.
+    *   *Topic Idea 3: Multimodal/Video/3D Foundation Models.* "Omni123" (3D Native) and "ActionParty" (Multi-subject video). Video generation/editing is a dominant trend. "VOID" (video object deletion) is very specific to editing. "Steerable Visual Representations" is interesting but niche (ViT steering). Let's look for something about Multimodal or Video Gen that has broad application.
+    *   *Alternative Idea:* The Apple MLX release. It's practical for Apple users, but maybe less general for a Brazilian audience using mostly CUDA/NVIDIA?
+    *   *Alternative Idea:* "Grounded Token Initialization". Good for LLM customization, but might be too niche for a general LinkedIn feed.
+    *   *Alternative Idea:* The shift in investment from models to infrastructure (AI Weekly). This validates the business context for technical roles.
+
+    *Decision on Top 3:*
+    1.  **Infrastructure Shift & Real-World Deals:** Focus on the "AI value chain inversion" (News source: AI Weekly/Insights). Why? Because it tells engineers where the budget is going now (Streaming, Drug Discovery pipelines) rather than just LLM tokens. *Wait*, looking closer at the input, there's a specific entry for `AI Weekly` with detailed content about $25B deals, IBM Confluent, etc. This is high-impact news.
+    2.  **Efficient Reasoning & Cost Reduction (LLM Inference):** "Batched Contextual Reinforcement" (arXiv 2604.02322). Why? Because LLM costs are exploding. Reducing token usage by 15-60% while keeping accuracy is a massive practical win for any company building AI apps.
+    3.  **Advanced Video Editing/Simulation:** "ActionParty" (arXiv 2604.02330) or "Omni123". ActionParty controls multiple agents in video games/worlds. This aligns with the rise of "Video World Models". Let's choose **Omni123** or **VOID**. VOID deals with inpainting interactions (physics). Omni123 is about 3D native. Video generation is very hot. Let's go with **"ActionParty" (Multi-subject Action Binding)** as it touches on world models and multi-agent control in video, which connects to agents/embodied AI trends.
+    *   *Re-evaluating based on "Brazilian LinkedIn Audience":* They like practical applications, career moves, and clear tech stacks.
+    *   *Selection 1 (Trend/Business Tech):* The shift from Model Building to Data/Infra Investment (AI Weekly). Practical angle: Where the money is going now, don't just train models, build robust pipelines.
+    *   *Selection 2 (Engineering/LLM Optimization):* Batched Contextual Reinforcement (arXiv). Practical angle: How to save $ on LLM inference without losing intelligence. Code-ready impact.
+    *   *Selection 3 (Multimodal/Video Agents):* ActionParty (arXiv). Practical angle: Controlling complex video interactions for games and robotics (Embodied AI).
+
+    *Wait, I need to check `source_type`.* For arXiv papers, it's "arxiv". For news links, it's "web" or "news". The prompt asks for `illustration_hint`.
+    *   Item 1 (AI Weekly): Source is Tavily/Web. Type "news".
+    *   Item 2 (BCR): Source is arXiv. Type "arxiv".
+    *   Item 3 (ActionParty): Source is arXiv. Type "arxiv".
+
+    *Refining Selection for Maximum Impact:*
+    The prompt asks for "topics". I can combine sources if they represent one topic, but the schema implies specific items. I should pick the best 3 distinct content pieces from the list provided that fit the criteria (New, Relevant, Technical).
+
+    *Candidate 1: Infrastructure & Investment Shift.* Source: AI Weekly. Title: Focus on "AI value chain inversion". Angle: Strategic for CTOs/Engineers to build infra before models.
+    *Candidate 2: Efficient LLM Reasoning.* Source: arXiv 2604.02322 (Batched Contextual Reinforcement). Title: Focus on token reduction. Angle: Practical cost-saving technique.
+    *Candidate 3: Video World Models/Multi-Agent.* Source: arXiv 2604.02330 (ActionParty). Title: Multi-subject action binding. Angle: Pushing video generation beyond simple clips into interactive worlds.
+
+    *Wait, are there any duplicates?* The AI Weekly content has many links inside the text but is one search result. I will treat it as one news item about the "AI Value Chain Shift".
+    *Are they niche?* BCR and ActionParty are academic papers, which fit a "technical" audience well. They aren't too obscure (Action Party controls 7 players in Melting Pot benchmark - clear metric). BCR has specific metrics (15-60% reduction).
+
+    *Formatting:* JSON Array. Fields: `title`, `summary`, `source_url`, `source_type`, `arxiv_id`, `suggested_angle`, `illustration_hint`.
+    *   For non-arxiv items, `arxiv_id` should be null or omitted? The prompt says "arxiv_id" field exists. I will set to `null` if not arXiv.
+    *   Illustration hint: Must be one of the specified values (`paper_figure`, `repo_image`, `code`, `stock_photo`, `none`).
+
+    *Drafting the content:*
+    1.  **AI Infrastructure Trend**: Focus on the $25B shift to data streaming and infrastructure (IBM/Confluent deal). Angle: "Don't just train models, build the backbone". Illustration: `stock_photo` or `code` (infrastructure diagram). Let's use `paper_figure` style (diagram of value chain). Actually `stock_photo` is safer for general news if no specific fig. But `illustration_hint` constraints say `paper_figure | repo_image | code | stock_photo | none`. For news about deals, maybe `stock_photo` or `none`. I'll use `stock_photo` for high-level trends or `code` for tools. Let's pick `stock_photo` for "Investment Shift".
+    2.  **LLM Efficiency (BCR)**: Title
