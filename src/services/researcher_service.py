@@ -88,6 +88,15 @@ def _collect_raw_results() -> list[dict]:
     return results
 
 
+def _strip_think_block(text: str) -> str:
+    """Remove o bloco <think>...</think> produzido por modelos com reasoning."""
+    start = text.find("<think>")
+    end = text.find("</think>")
+    if start != -1 and end != -1:
+        return text[end + len("</think>"):].strip()
+    return text
+
+
 def _extract_json_array(text: str) -> list[dict]:
     """
     Extrai o primeiro array JSON encontrado no texto.
@@ -95,6 +104,7 @@ def _extract_json_array(text: str) -> list[dict]:
     Lida com modelos que produzem raciocínio antes do JSON ou que envolvem
     a resposta em markdown code fences.
     """
+    text = _strip_think_block(text)
     start = text.find("[")
     if start == -1:
         raise ValueError(f"Nenhum array JSON encontrado na resposta do LLM.\nResposta: {text[:300]}")

@@ -59,6 +59,38 @@ def _set_writer_debug_log_file(output_dir: Path) -> None:
     )
 
 
+def _extract_code_content(raw: str) -> str:
+    if "```" in raw:
+        lines = raw.splitlines()
+        return "\n".join(
+            line for line in lines if not line.startswith("```")
+        ).strip()
+    # If no fences, take everything after the last blank line before code-like content
+    return raw
+
+
+def _strip_think_block(raw: str) -> str:
+    start = raw.find("<think>")
+    end = raw.find("</think>")
+    if start != -1 and end != -1:
+        return raw[end + len("</think>"):].strip()
+    return raw
+
+
+def _extract_post_content(raw: str) -> str:
+    text = _strip_think_block(raw)
+    # Use rfind to get the LAST <post>...</post> pair — the actual post is always
+    # generated after any thinking/reasoning text that may mention <post> tags.
+    start = text.rfind("<post>")
+    end = text.rfind("</post>")
+    if start != -1 and end != -1 and end > start:
+        return text[start + len("<post>"):end].strip()
+    if start != -1:
+        # Truncated response: </post> was cut off — return everything after <post>
+        return text[start + len("<post>"):].strip()
+    return text
+
+
 def _generate_text(result: ResearchResult) -> str:
     prompt_template = WRITER_PROMPT_PATH.read_text(encoding="utf-8")
     prompt = (
@@ -72,7 +104,7 @@ def _generate_text(result: ResearchResult) -> str:
     client = OpenAI(base_url=config.settings.lmstudio_base_url, api_key="lm-studio")
     message = client.chat.completions.create(
         model=config.settings.lmstudio_model,
-        max_tokens=4096,
+        max_tokens=8192,
         messages=[{"role": "user", "content": prompt}],
     )
     response_raw = (message.choices[0].message.content or "").strip()
@@ -81,7 +113,7 @@ def _generate_text(result: ResearchResult) -> str:
         prompt=prompt,
         raw_output=response_raw,
     )
-    return response_raw
+    return _extract_post_content(response_raw)
 
 
 def _fetch_image(
@@ -151,18 +183,13 @@ def _generate_code_snippet(
         max_tokens=512,
         messages=[{"role": "user", "content": prompt}],
     )
-    code = (message.choices[0].message.content or "").strip()
+    response_raw = (message.choices[0].message.content or "").strip()
     _write_agent_debug_log(
         agent_name="writer_code",
         prompt=prompt,
-        raw_output=code,
+        raw_output=response_raw,
     )
-    # Remove possíveis fences
-    if code.startswith("```"):
-        lines = code.splitlines()
-        code = "\n".join(
-            line for line in lines if not line.startswith("```")
-        ).strip()
+    code = _extract_code_content(response_raw)
     return code
 
 

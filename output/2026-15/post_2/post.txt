@@ -1,0 +1,10 @@
+Pare de escalar o encoder visual se a sua ação for discretizada. 🛑 Isso é o que descobrimos estudando o 'Compression Gap' em modelos VLA. O problema não está na qualidade da imagem, mas na perda de informação no código. Em produção, aumentamos a dimensão do backbone sem perceber que o gargalo real é o codebook que codifica as ações possíveis.
+
+Isso gera um desperdício massivo de custos de inferência e latência desnecessária. O modelo vê tudo, mas não consegue traduzir em execução fina devido à discretização rígida da saída. A maturidade operacional exige saber identificar onde o 'tightest information bottleneck' reside, geralmente na quantização das ações ou na janela temporal.
+
+Se você prioriza apenas melhorar a precisão visual, pode estar construindo uma infraestrutura subutilizada e cara. O retorno do investimento em modelos VLA só se sustenta quando otimizamos o fluxo de decisão, não apenas o consumo de dados visuais. É tempo de olhar para a arquitetura completa antes de gastar mais um único FLOP no encoder.
+
+Imagem Sugerida: Diagrama comparando throughput de encoders grandes vs eficiência do codebook na discretização das ações.
+#MachineLearning #DataEngineering #RobóticaIA #LLMOps #AIInference
+
+Qual é o maior gargalo que você enfrenta hoje em produção com modelos VLA?

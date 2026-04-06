@@ -1,0 +1,9 @@
+Pare de tratar context window como métrica de confiabilidade. Agentes com janelas gigantescas ainda falham silenciosamente sem observabilidade estruturada. O novo modelo hierárquico sugere algo crucial para produção: desacoplar controle, memória e verificação.
+
+Na prática, isso significa implementar loops explícitos de verificação de ação antes da execução física ou financeira. Separe o planner do executor. Isso não é overengineering; é engenharia de confiabilidade. Erros correlacionados em pipelines de decisão causam danos reais, não apenas conversas erradas no chat.
+
+Implementar memória estruturada e auditoria aumenta latência, mas reduz custo de refatoração e risco operacional. Sistemas multi-etapa exigem separação clara: quem decide (Control), o que recorda (Memory) e como valida (Verify). Sem essa triagem arquitetural, a "inteligência" é apenas alucinação orquestrada.
+
+A maturidade em IA aplicada não vem de tokens infinitos, mas de fronteiras bem definidas entre estado, decisão e validação. Vocês conseguem auditar as ações dos seus agentes atuais? 🤔
+
+Sugestão Visual: Diagrama técnico mostrando o loop de verificação acoplado (Control-Memory-Verify) com destaque para a redução de erro vs latência adicionada. #MachineLearning #AIEngineering #LLMOps #DataScience #Automation
