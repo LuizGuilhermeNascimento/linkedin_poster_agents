@@ -1,14 +1,14 @@
 {
-  "id": "ac788383-22e7-41a7-b268-41fea796cde8",
-  "created_at": "2026-04-06T23:38:49.260575+00:00",
+  "id": "393525c5-55a7-4111-a076-beee6d5102d3",
+  "created_at": "2026-04-08T15:42:11.071956+00:00",
   "week": "2026-15",
   "research": {
-    "title": "O 'Compression Gap': Por que o Encoder não resolve tudo em Modelos VLA",
-    "summary": "Estudo fundamental sobre escalabilidade de modelos Visão-Linguagem-Ação. Mostra que quando ações são discretizadas, o bottleneck muda do encoder para o codebook. Crucial para engenheiros de robótica evitando custos de inferência desperdiçados.",
-    "source_url": "https://arxiv.org/abs/2604.03191",
+    "title": "Learning the Signature of Memorization Exposes Universal Vulnerabilities Across All LLM Architectures",
+    "summary": "Pesquisadores identificaram uma assinatura de memorização universal em modelos ajustados, detectável independentemente da arquitetura (Transformers, Mamba, RWKV). Um classificador treinado apenas em transformers transfere zero-shot para famílias distintas com >0.93 AUC.",
+    "source_url": "https://arxiv.org/abs/2604.03199",
     "source_type": "arxiv",
-    "arxiv_id": "2604.03191",
-    "suggested_angle": "Não aumente o encoder de visão em VLA se as ações forem discretizadas. Identifique onde está o 'tightest information bottleneck' (geralmente no codebook ou na latência), não apenas no modelo.",
+    "arxiv_id": "2604.03199",
+    "suggested_angle": "Segurança de LLMs em enterprise não é apenas sobre guardrails; requer pipelines de eval que detectem memorização e vazamento de dados mesmo sem treinamento direto do classificador.",
     "illustration_hint": "paper_figure",
     "raw_sources": [
       {
@@ -326,9 +326,9 @@
       }
     ]
   },
-  "text": "Pare de escalar o encoder visual se a sua ação for discretizada. 🛑 Isso é o que descobrimos estudando o 'Compression Gap' em modelos VLA. O problema não está na qualidade da imagem, mas na perda de informação no código. Em produção, aumentamos a dimensão do backbone sem perceber que o gargalo real é o codebook que codifica as ações possíveis.\n\nIsso gera um desperdício massivo de custos de inferência e latência desnecessária. O modelo vê tudo, mas não consegue traduzir em execução fina devido à discretização rígida da saída. A maturidade operacional exige saber identificar onde o 'tightest information bottleneck' reside, geralmente na quantização das ações ou na janela temporal.\n\nSe você prioriza apenas melhorar a precisão visual, pode estar construindo uma infraestrutura subutilizada e cara. O retorno do investimento em modelos VLA só se sustenta quando otimizamos o fluxo de decisão, não apenas o consumo de dados visuais. É tempo de olhar para a arquitetura completa antes de gastar mais um único FLOP no encoder.\n\nImagem Sugerida: Diagrama comparando throughput de encoders grandes vs eficiência do codebook na discretização das ações.\n#MachineLearning #DataEngineering #RobóticaIA #LLMOps #AIInference\n\nQual é o maior gargalo que você enfrenta hoje em produção com modelos VLA?",
-  "image_path": null,
-  "image_url": null,
-  "image_credit": null,
+  "text": "A segurança de LLMs em enterprise não depende da arquitetura escolhida. 🛡️ Recent pesquisa identifica uma assinatura universal de memorização: modelos ajustados vazam dados de treino detectáveis, independentemente se são Transformers, Mamba ou RWKV.\n\nPara engenheiros de produção, isso muda o escopo do risco. Um classificador treinado apenas em transformers transfere zero-shot para outras famílias com >0.93 AUC. Isso elimina a necessidade proibitiva de re-treinar avaliadores específicos para cada nova arquitetura na stack. A vulnerabilidade reside no conteúdo memorizado, não na estrutura.\n\nNa prática, imagine um agente corporativo analisando contratos confidenciais. Se o modelo \"lembrar\" treinos sensíveis, guardrails de prompt falham silenciosamente. Você precisa de pipelines de eval que detectem vazamento sem depender do treinamento direto para cada atualização. O trade-off entre latência de inferência e custo de auditoria exige essa eficiência técnica.\n\nA maturidade operacional atual foca em evitar alucinações, ignorando vetores passivos de memória. É hora de tratar memorização como um risco de segurança sistêmico, não um bug pontual. Como sua equipe valida a privacidade dos dados quando você troca o modelo base sem revalidar toda a camada de segurança? 🤔\n\n#LLMOps #MachineLearning #DataSecurity #EnterpriseAI #DevOps",
+  "image_path": "output/2026-15/post_2/image.png",
+  "image_url": "https://arxiv.org/pdf/2604.03199",
+  "image_credit": "arXiv:2604.03199",
   "status": "draft"
 }

@@ -1,14 +1,14 @@
 {
-  "id": "48b5ce90-3310-4443-a2ad-56cd1eaf2644",
-  "created_at": "2026-04-06T23:37:32.327469+00:00",
+  "id": "5101b052-c26f-4cd3-89d8-e65d0513ffbe",
+  "created_at": "2026-04-08T15:41:09.652133+00:00",
   "week": "2026-15",
   "research": {
-    "title": "Arquitetura de Agentes Robustos: Control, Memória e Verificação Acoplados",
-    "summary": "O paper propõe um modelo hierárquico que integra controle, memória estruturada e verificação de ação para agentes de IA. Importa para a produção porque resolve o problema de falhas silenciosas em observabilidade parcial. Encaixa-se na construção de sistemas agênticos complexos que precisam executar tarefas físicas ou multi-etapas com auditoria.",
-    "source_url": "https://arxiv.org/abs/2604.03201",
+    "title": "Hierarchical Planning Reduces Agent Inference Cost by 4x in Latent World Models",
+    "summary": "Novo estudo no arXiv demonstra que planejamento hierárquico em múltiplas escalas temporais resolve problemas de longo horizonte em controle embodied. O método alcançou taxa de sucesso de 70% em tarefas robóticas reais, usando até 4x menos compute de inferência comparado a modelos de nível único.",
+    "source_url": "https://arxiv.org/abs/2604.03208",
     "source_type": "arxiv",
-    "arxiv_id": "2604.03201",
-    "suggested_angle": "Abandone a ideia de que agentes só precisam de context window maior. Implemente loops explícitos de verificação e separação proposta/r/executor para reduzir erros correlacionados.",
+    "arxiv_id": "2604.03208",
+    "suggested_angle": "Não escalar modelos é a solução; arquiteturas hierárquicas são o caminho para agentes que agem no mundo físico sem estourar o orçamento de inferência em produção.",
     "illustration_hint": "paper_figure",
     "raw_sources": [
       {
@@ -326,9 +326,9 @@
       }
     ]
   },
-  "text": "Pare de tratar context window como métrica de confiabilidade. Agentes com janelas gigantescas ainda falham silenciosamente sem observabilidade estruturada. O novo modelo hierárquico sugere algo crucial para produção: desacoplar controle, memória e verificação.\n\nNa prática, isso significa implementar loops explícitos de verificação de ação antes da execução física ou financeira. Separe o planner do executor. Isso não é overengineering; é engenharia de confiabilidade. Erros correlacionados em pipelines de decisão causam danos reais, não apenas conversas erradas no chat.\n\nImplementar memória estruturada e auditoria aumenta latência, mas reduz custo de refatoração e risco operacional. Sistemas multi-etapa exigem separação clara: quem decide (Control), o que recorda (Memory) e como valida (Verify). Sem essa triagem arquitetural, a \"inteligência\" é apenas alucinação orquestrada.\n\nA maturidade em IA aplicada não vem de tokens infinitos, mas de fronteiras bem definidas entre estado, decisão e validação. Vocês conseguem auditar as ações dos seus agentes atuais? 🤔\n\nSugestão Visual: Diagrama técnico mostrando o loop de verificação acoplado (Control-Memory-Verify) com destaque para a redução de erro vs latência adicionada. #MachineLearning #AIEngineering #LLMOps #DataScience #Automation",
+  "text": "Pare de acreditar que o modelo maior sempre é a resposta para problemas de longo horizonte na produção real. O custo marginal da inferência é o verdadeiro inimigo para agentes que agem no mundo físico. Um novo estudo no arXiv traz a maturidade operacional que faltava: planejamento hierárquico em mundos latentes reduz o custo computacional em até 4x comparado a modelos de nível único.\n\nEm vez de exigir de um modelo monolítico que resolva tudo, ensinamos o sistema a decompor: estratégia macro e execução micro. Isso é crucial para robótica autônoma ou controle industrial onde latência é tão crítica quanto precisão. O método atingiu 70% de sucesso em tarefas reais usando menos recursos de GPU.\n\nO trade-off claro aqui é complexidade arquitetural versus robustez econômica. Se o seu agente logístico ou sistema autônomo gasta mais com inferência do que gera valor, você precisa mudar a arquitetura, não apenas o modelo base. Escalar sem otimizar a tomada de decisão é jogar dinheiro fora em produção 💸. Isso demanda mudanças no pipeline de dados e engenharia de embeddings para suportar contextos temporais longos.\n\nA eficiência sustentável vem da hierarquia temporal, não do tamanho dos tokens. Qual é o seu maior gargalo hoje: capacidade de processamento ou latência de resposta?\n\n#MachineLearning #LLMOps #DataEngineering #AIInfrastructure #RoboticControl #AppliedAI",
   "image_path": "output/2026-15/post_1/image.png",
-  "image_url": "https://arxiv.org/pdf/2604.03201",
-  "image_credit": "arXiv:2604.03201",
+  "image_url": "https://arxiv.org/pdf/2604.03208",
+  "image_credit": "arXiv:2604.03208",
   "status": "draft"
 }

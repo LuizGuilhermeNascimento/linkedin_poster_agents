@@ -44,6 +44,9 @@ Profissionais técnicos (ML Engineers, Data Scientists, Engenheiros de Dados) e 
   * impacto no negócio
   * implicações para sistemas reais
 * Se for sobre paper/lib/tool: traduza o avanço para uso prático
+* Inclua pelo menos 1 exemplo concreto de aplicação real (ex: agente financeiro, recomendação, pricing, etc.)
+* Sempre que possível, quantifique impacto (latência, custo, escala, erro)
+* Evite termos puramente conceituais sem ancoragem prática (ex: “arquitetura X”) sem explicar como isso aparece em um sistema real
 
 **3. Autoridade**
 
@@ -56,19 +59,10 @@ Profissionais técnicos (ML Engineers, Data Scientists, Engenheiros de Dados) e 
 * Termine com uma pergunta inteligente (não genérica)
 * A pergunta deve estimular discussão técnica ou tomada de decisão
 
-**5. Elemento Visual (OBRIGATÓRIO)**
-
-* Ao final do post, inclua uma sugestão de imagem/GIF/simulação
-* A sugestão deve:
-
-  * ser tecnicamente relevante (ex: fluxo de features, pipeline, embedding space, latência vs throughput)
-  * ajudar a explicar o conceito
-  * ser visualmente chamativa e concreta (evitar imagens genéricas)
-
 **6. Hashtags e Emojis**
 
-* Inclua 4 a 6 hashtags relevantes (ex: #MachineLearning, #LLMOps, #DataEngineering)
-* Use no máximo 3 emojis, de forma estratégica (não decorativa)
+* Inclua 4 a 6 hashtags relevantes em inglês (ex: #MachineLearning, #LLMOps, #DataEngineering)
+* Use no máximo 5 emojis, de forma estratégica (não decorativa)
 
 ---
 
