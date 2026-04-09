@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from tavily import TavilyClient
 
-from ..core.config import settings
+from app.config import settings
 
 
 def search(query: str, max_results: int = 5) -> list[dict]:

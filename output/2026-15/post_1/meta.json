@@ -1,14 +1,14 @@
 {
-  "id": "5101b052-c26f-4cd3-89d8-e65d0513ffbe",
-  "created_at": "2026-04-08T15:41:09.652133+00:00",
+  "id": "c98d3080-7914-4db2-80c4-36c536e70591",
+  "created_at": "2026-04-09T15:34:13.887651+00:00",
   "week": "2026-15",
   "research": {
-    "title": "Hierarchical Planning Reduces Agent Inference Cost by 4x in Latent World Models",
-    "summary": "Novo estudo no arXiv demonstra que planejamento hierárquico em múltiplas escalas temporais resolve problemas de longo horizonte em controle embodied. O método alcançou taxa de sucesso de 70% em tarefas robóticas reais, usando até 4x menos compute de inferência comparado a modelos de nível único.",
-    "source_url": "https://arxiv.org/abs/2604.03208",
+    "title": "O 'Compression Gap': Por que Escalar Codificadores de Visão Falha em Modelos de Ações Discretas",
+    "summary": "A pesquisa demonstra um gargalo informático crítico em modelos Vision-Language-Action (VLA): quando ações são representadas por tokens discretos, o codificador de código se torna o limite de informação. Escalar apenas o encoder visual não melhora o desempenho nesses cenários.",
+    "source_url": "https://arxiv.org/abs/2604.03191",
     "source_type": "arxiv",
-    "arxiv_id": "2604.03208",
-    "suggested_angle": "Não escalar modelos é a solução; arquiteturas hierárquicas são o caminho para agentes que agem no mundo físico sem estourar o orçamento de inferência em produção.",
+    "arxiv_id": "2604.03191",
+    "suggested_angle": "Para engenheiros de robótica: pare de escalar uniformemente encoders se suas ações forem discretas. O 'Compression Gap' impõe um limite prático de throughput no pipeline visuomotor, exigindo arquitetura diferente (ex: Diffusion Policy vs OAT). Isso impacta diretamente a estratégia de hardware e custo de inferência.",
     "illustration_hint": "paper_figure",
     "raw_sources": [
       {
@@ -326,9 +326,9 @@
       }
     ]
   },
-  "text": "Pare de acreditar que o modelo maior sempre é a resposta para problemas de longo horizonte na produção real. O custo marginal da inferência é o verdadeiro inimigo para agentes que agem no mundo físico. Um novo estudo no arXiv traz a maturidade operacional que faltava: planejamento hierárquico em mundos latentes reduz o custo computacional em até 4x comparado a modelos de nível único.\n\nEm vez de exigir de um modelo monolítico que resolva tudo, ensinamos o sistema a decompor: estratégia macro e execução micro. Isso é crucial para robótica autônoma ou controle industrial onde latência é tão crítica quanto precisão. O método atingiu 70% de sucesso em tarefas reais usando menos recursos de GPU.\n\nO trade-off claro aqui é complexidade arquitetural versus robustez econômica. Se o seu agente logístico ou sistema autônomo gasta mais com inferência do que gera valor, você precisa mudar a arquitetura, não apenas o modelo base. Escalar sem otimizar a tomada de decisão é jogar dinheiro fora em produção 💸. Isso demanda mudanças no pipeline de dados e engenharia de embeddings para suportar contextos temporais longos.\n\nA eficiência sustentável vem da hierarquia temporal, não do tamanho dos tokens. Qual é o seu maior gargalo hoje: capacidade de processamento ou latência de resposta?\n\n#MachineLearning #LLMOps #DataEngineering #AIInfrastructure #RoboticControl #AppliedAI",
+  "text": "Pare de escalar uniformemente encoders visuais apenas porque o VLA parece mais profundo. A pesquisa recente expõe um 'Compression Gap' crítico: em modelos de ações discretas, o codificador de ação se torna o limite informático, não o visual. Escalar a percepção sem expandir a capacidade do código de ação só infla VRAM e latência de inferência, sem ganhar acurácia na tarefa motora.\n\nPara engenheiros de robótica e sistemas em produção, isso muda a estratégia de hardware. Imagine um agente operando em linha de montagem: se você dimensiona o visual encoder para 4x mas não resolve a discretização da ação, o throughput do pipeline Visuomotor colapsa silenciosamente. O custo por execução sobe drasticamente quando ignora esse gargalo informático, comprometendo o ROI em automação industrial.\n\nTrade-offs são claros aqui. Complexidade vs ganho é nulo se o gargalo está no espaço latente discreto. Isso exige arquitetura diferente, como mudar para Diffusion Policy ou ajustar o budget de tokens na codebook. A maturidade operacional exige saber onde parar de adicionar parâmetros inúteis e focar na eficiência do atuador físico.\n\nVocê dimensiona seus modelos baseando-se apenas em perplexity ou está pensando no throughput final da ação? 🛑⚙️💸\n\n#MachineLearning #RoboticsAI #LLMOps #DataEngineering #CloudComputing",
   "image_path": "output/2026-15/post_1/image.png",
-  "image_url": "https://arxiv.org/pdf/2604.03208",
-  "image_credit": "arXiv:2604.03208",
+  "image_url": "https://ardalis.com/img/github-diagrams-with-mermaid.png",
+  "image_credit": "https://ardalis.com/img/github-diagrams-with-mermaid.png",
   "status": "draft"
 }

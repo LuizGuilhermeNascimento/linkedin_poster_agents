@@ -1,14 +1,14 @@
 {
-  "id": "78eb142b-2edb-44ef-82de-2a8c6f93f709",
-  "created_at": "2026-04-08T15:42:58.551431+00:00",
+  "id": "a8717aad-95ce-49ef-8214-c669a29a7921",
+  "created_at": "2026-04-09T15:37:12.109386+00:00",
   "week": "2026-15",
   "research": {
-    "title": "The Compression Gap: Why Discrete Tokenization Limits Vision-Language-Action Model Scaling",
-    "summary": "Ao escalar modelos VLA (Vision-Language-Action), aumentar o vision encoder para ações discretizadas falha devido a um gargalo de código (codebook). O trabalho valida experimentalmente que o código é o binding constraint, não o encoder.",
-    "source_url": "https://arxiv.org/abs/2604.03191",
+    "title": "Planejamento Hierárquico supera Erros Acumulados em Controle de Robôs com World Models",
+    "summary": "Modelos de mundo aprendidos frequentemente falham em tarefas de longo alcance devido à propagação de erro. A abordagem hierárquica em múltiplas escalas temporais reduz a complexidade de inferência e atinge 70% de sucesso em pick-&-place (vs 0% em modelos de nível único).",
+    "source_url": "https://arxiv.org/abs/2604.03208",
     "source_type": "arxiv",
-    "arxiv_id": "2604.03191",
-    "suggested_angle": "Ao construir Physical AI/VLA, pare de escalar encoders cegamente. O gargalo de informação está na capacidade do códigobook de ações discretas, um limite físico da arquitetura que exige mudança de design.",
+    "arxiv_id": "2604.03208",
+    "suggested_angle": "Para sistemas Embody AI: a técnica de 'Hierarchical Planning' é um divisor de águas para controle MPC aprendido. Permite zero-shot em novos ambientes reduzindo erro acumulado. Essencial para quem estuda agentes que precisam de raciocínio de longo prazo sem intervenção humana.",
     "illustration_hint": "paper_figure",
     "raw_sources": [
       {
@@ -326,9 +326,9 @@
       }
     ]
   },
-  "text": "Estamos desperdiçando ciclos de treino e budget escalando vision encoders em modelos VLA cegamente? A nova pesquisa arXiv expõe o problema real: o gargalo não é visual, é de código. O codebook discretizado atua como um bottleneck físico na arquitetura, limitando a expansão independente do encoder visual. 📉\n\nNa prática, se você opera agentes robóticos industriais ou sistemas de trading autônomos, aumentar a resolução da entrada sem reformar a tokenização das ações gera apenas latência e custo desnecessário. O binding constraint é a compressão discreta do espaço contínuo de ação, não a capacidade do encoder capturar pixels.\n\nIsso implica mudança de design arquitetural imediata para produção. Focar em quantização mais fina ou vocabulários hierárquicos na saída impacta diretamente o ROI e a confiabilidade do sistema em inferência longa. Escalar hardware sem resolver o limite de compressão do codebook é ineficiente operacionalmente. A maturidade técnica exige identificar esses pontos de saturação antes da otimização dos encoders.\n\nOnde você já encontrou gargalos de arquitetura invisíveis no design inicial? 🛠️\n\n#MachineLearning #VLA #AIEngineering #DataArchitecture #LLMOps #SystemDesign",
-  "image_path": null,
-  "image_url": null,
-  "image_credit": null,
+  "text": "Modelos de mundo em robótica frequentemente falham miseravelmente em tarefas de longo alcance: o erro acumulado se propaga e destrói a trajetória antes da conclusão. O recente trabalho sobre Hierarchical Planning resolve isso com um insight simples de engenharia: dividir o horizonte temporal reduz drasticamente a complexidade de inferência.\n\nEnquanto modelos uníveis ficam presos com 0% de sucesso em pick-&-place, a abordagem hierárquica atinge 70%. 🤖 Para sistemas de controle MPC aprendido, isso significa que planejar não é mais sobre simular o futuro perfeitamente, mas sobre gerenciar riscos cumulativos através de múltiplas escalas.\n\nO impacto prático para produção é enorme. Um agente com arquitetura hierárquica opera em novos ambientes (zero-shot) sem necessidade de re-treinamento massivo. Em linhas de logística autônoma ou montagem industrial, isso elimina o custo operacional de supervisão humana constante. Simples: robustez vale mais que precisão teórica em um ambiente hostil e imprevisível.\n\nJá vi pipelines onde a latência batia na porta antes do modelo aprender algo complexo. O raciocínio de longo prazo aqui não depende de supercomputação, mas de uma arquitetura de decomposição temporal correta. Arquitetura hierárquica não é overhead desnecessário; é o requisito para maturidade operacional em sistemas Embodied.\n\nPara lideres técnicos construindo agentes autônomos: qual barreira atual impede a escala do seu modelo? É o custo computacional ou o medo de falhas catastróficas em longas sequências?\n\n#EmbodiedAI #MachineLearning #ProductionML #Robotics #AppliedAI #DataEngineering",
+  "image_path": "output/2026-15/post_3/image.png",
+  "image_url": "https://arxiv.org/pdf/2604.03208",
+  "image_credit": "arXiv:2604.03208",
   "status": "draft"
 }

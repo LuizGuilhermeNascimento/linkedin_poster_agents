@@ -12,7 +12,6 @@ ARXIV_NS = "http://www.w3.org/2005/Atom"
 def search_recent_papers(
     categories: list[str] | None = None,
     max_results: int = 10,
-    days_back: int = 7,
 ) -> list[dict]:
     """
     Busca papers recentes no arXiv nas categorias informadas.
@@ -64,7 +63,6 @@ def _get_text(element: ET.Element, tag: str) -> str:
 
 def _extract_arxiv_id(entry: ET.Element) -> str:
     id_url = _get_text(entry, f"{{{ARXIV_NS}}}id")
-    # id_url é algo como https://arxiv.org/abs/2401.12345v1
     return id_url.split("/abs/")[-1].split("v")[0]
 
 
@@ -74,4 +72,4 @@ def _extract_authors(entry: ET.Element) -> list[str]:
         name = _get_text(author, f"{{{ARXIV_NS}}}name")
         if name:
             authors.append(name)
-    return authors[:5]  # limita a 5 autores
+    return authors[:5]

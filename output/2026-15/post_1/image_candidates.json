@@ -1,0 +1,82 @@
+[
+  {
+    "score": 0.9107,
+    "url": "https://ardalis.com/img/github-diagrams-with-mermaid.png",
+    "source": "web",
+    "alt_text": "GitHub Diagrams with Mermaid - Ardalis (Steve Smith)",
+    "width": 1024,
+    "height": 512,
+    "query_origin": "Gap': github readme diagram",
+    "context_text": "og:image"
+  },
+  {
+    "score": 0.8923,
+    "url": "https://media.licdn.com/dms/image/v2/D5612AQEbLxtYP18kUQ/article-cover_image-shrink_720_1280/B56ZvgnfWHIUAM-/0/1769000010498?e=2147483647&v=beta&t=Ipg5yMlFN-ck8JM0RW2KF5EabvzesJ5M_1valar19aQ",
+    "source": "web",
+    "alt_text": "The Gap Between Architecture Diagrams and Production Reality",
+    "width": 1280,
+    "height": 720,
+    "query_origin": "Gap': architecture diagram",
+    "context_text": "og:image"
+  },
+  {
+    "score": 0.8923,
+    "url": "https://i.ytimg.com/vi/qmEyRlGlcw4/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGFsgYChlMA8=&rs=AOn4CLDbJ9xg1KdME6zforu_4Hk__PTw1g",
+    "source": "web",
+    "alt_text": "Video Tutorial on the use of the new GAP overview file - YouTube",
+    "width": 1280,
+    "height": 720,
+    "query_origin": "Gap': system overview",
+    "context_text": "og:image"
+  },
+  {
+    "score": 0.778,
+    "url": "https://raw.githubusercontent.com/PelleNybe/CoraxCoLABs-GAP-GreenAutomatedPlatform---GAPbot/main/assets/hero-gapbot.png",
+    "source": "github",
+    "alt_text": "",
+    "width": 1849,
+    "height": 1548,
+    "query_origin": "Gap': system overview",
+    "context_text": "GitHub README: PelleNybe/CoraxCoLABs-GAP-GreenAutomatedPlatform---GAPbot"
+  },
+  {
+    "score": 0.65,
+    "url": "https://ardalis.com/img/social/bluesky.svg",
+    "source": "web",
+    "alt_text": "Bluesky",
+    "width": 0,
+    "height": 0,
+    "query_origin": "Gap': github readme diagram",
+    "context_text": "GitHub Diagrams with Mermaid - Ardalis (Steve Smith)"
+  },
+  {
+    "score": 0.65,
+    "url": "https://ardalis.com/img/social/youtube.svg",
+    "source": "web",
+    "alt_text": "YouTube",
+    "width": 0,
+    "height": 0,
+    "query_origin": "Gap': github readme diagram",
+    "context_text": "GitHub Diagrams with Mermaid - Ardalis (Steve Smith)"
+  },
+  {
+    "score": 0.64,
+    "url": "https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1000&color=129532&center=true&vCenter=true&width=700&lines=Intelligent+Automation+for+the+Physical+World;Edge-First+AI+and+Autonomous+Robotics;Harmonizing+Nature+with+Digital+Tech;Precision+Agriculture+%26+Deep+Tech",
+    "source": "github",
+    "alt_text": "Typing SVG",
+    "width": 0,
+    "height": 0,
+    "query_origin": "Gap': system overview",
+    "context_text": "GitHub README: PelleNybe/CoraxCoLABs-GAP-GreenAutomatedPlatform---GAPbot"
+  },
+  {
+    "score": 0.6294,
+    "url": "https://conceptdraw.com/a288c3/p1/preview/640/pict--block-diagram-block-diagram---gap-model-of-service-quality.png--diagram-flowchart-example.png",
+    "source": "web",
+    "alt_text": "Block diagram - Gap model of service quality | Business Process Modeling Software for Mac | Business Process Modeling | Diagram Of Gap Model",
+    "width": 640,
+    "height": 452,
+    "query_origin": "Gap': workflow diagram",
+    "context_text": "og:image"
+  }
+]

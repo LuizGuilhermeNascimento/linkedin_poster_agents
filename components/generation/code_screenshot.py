@@ -9,16 +9,16 @@ logger = logging.getLogger(__name__)
 
 def take_code_screenshot(code: str, output_path: Path) -> bool:
     """
-    Gera um screenshot de código usando carbon.now.sh via Playwright.
+    Generates a code screenshot using carbon.now.sh via Playwright.
 
-    Fallback: usa Pygments + Playwright para renderizar HTML como PNG.
+    Falls back to Pygments + Playwright if carbon.now.sh fails.
 
     Returns:
-        True se o screenshot foi salvo, False caso contrário.
+        True if the screenshot was saved, False otherwise.
     """
     success = _screenshot_via_carbon(code, output_path)
     if not success:
-        logger.info("Tentando fallback com Pygments para screenshot de código.")
+        logger.info("Trying Pygments fallback for code screenshot.")
         success = _screenshot_via_pygments(code, output_path)
     return success
 
@@ -27,7 +27,7 @@ def _screenshot_via_carbon(code: str, output_path: Path) -> bool:
     try:
         from playwright.sync_api import sync_playwright
     except ImportError:
-        logger.warning("Playwright não instalado.")
+        logger.warning("Playwright not installed.")
         return False
 
     encoded = urllib.parse.quote(code)
@@ -44,7 +44,6 @@ def _screenshot_via_carbon(code: str, output_path: Path) -> bool:
             browser = p.chromium.launch()
             page = browser.new_page()
             page.goto(url, wait_until="networkidle", timeout=30_000)
-            # Aguarda o container principal renderizar
             page.wait_for_selector("#export-container", timeout=15_000)
             container = page.query_selector("#export-container")
             if container is None:
@@ -52,10 +51,10 @@ def _screenshot_via_carbon(code: str, output_path: Path) -> bool:
                 return False
             container.screenshot(path=str(output_path))
             browser.close()
-            logger.info("Screenshot carbon.now.sh salvo em %s", output_path)
+            logger.info("carbon.now.sh screenshot saved to %s", output_path)
             return True
     except Exception as exc:
-        logger.warning("Falha no screenshot via carbon.now.sh: %s", exc)
+        logger.warning("carbon.now.sh screenshot failed: %s", exc)
         return False
 
 
@@ -66,7 +65,7 @@ def _screenshot_via_pygments(code: str, output_path: Path) -> bool:
         from pygments.lexers import PythonLexer
         from playwright.sync_api import sync_playwright
     except ImportError:
-        logger.warning("Pygments ou Playwright não instalados.")
+        logger.warning("Pygments or Playwright not installed.")
         return False
 
     formatter = HtmlFormatter(
@@ -87,10 +86,10 @@ def _screenshot_via_pygments(code: str, output_path: Path) -> bool:
             page.screenshot(path=str(output_path), full_page=True)
             browser.close()
         html_path.unlink(missing_ok=True)
-        logger.info("Screenshot Pygments salvo em %s", output_path)
+        logger.info("Pygments screenshot saved to %s", output_path)
         return True
     except Exception as exc:
-        logger.warning("Falha no screenshot via Pygments: %s", exc)
+        logger.warning("Pygments screenshot failed: %s", exc)
         if html_path.exists():
             html_path.unlink()
         return False
