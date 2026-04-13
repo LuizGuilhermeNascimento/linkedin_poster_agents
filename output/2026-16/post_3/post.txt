@@ -1,0 +1,8 @@
+O "Retrieval Augmented Generation" ingênuo ainda é o maior gargalo oculto em sistemas de IA para produção. Anexar documentos recuperados ao prompt não gera confiança; apenas amplia a latência e o custo sem garantir que a evidência *causalmente* sustente a resposta do modelo.
+
+Na prática, verificadores treinados apenas no resultado final aprendem correlações espúrias, falhando quando a prova é irrelevante mas presente no contexto. O novo conceito de Evidence Verification resolve isso ao treinar modelos para decidir se uma evidência suporta uma conclusão causalmente, usando exemplos sintéticos e negativos controlados. Isso transforma o RAG de um "passar de adaga" em uma verificação rigorosa.
+
+Imagine um agente financeiro que precisa gerar pareceres de crédito. Com a implementação clássica, ele pode invocar um documento irrelevante para justificar uma rejeição, criando riscos de compliance e viés algorítmico. Ao adotar essa supervisão causal, o sistema descarta proativamente evidências "encher linguiça", reduzindo taxas de erro em respostas críticas e mantendo a latência controlada ao evitar processamento desnecessário de contextos ruidosos. A robustez não vem do tamanho do contexto, mas da capacidade de discernir relevância causal antes da geração.
+
+Sua equipe está lidando com o ruído do RAG ou já implementou verificações causais explícitas?
+#LLMOps #MachineLearning #DataEngineering #AgenticAI #CausalInference

@@ -41,6 +41,11 @@ def main() -> None:
         default=OUTPUT_DIR / "raw_results",
         help="Directory where collected raw results will be saved",
     )
+    parser.add_argument(
+        "--debug",
+        action="store_true",
+        help="Enable debug mode: save all ranked images/figures",
+    )
 
     args = parser.parse_args()
 
@@ -55,6 +60,7 @@ def main() -> None:
         set_runtime_inputs(
             raw_results_file=args.raw_results_file,
             raw_results_dir=args.raw_results_dir,
+            debug=args.debug,
         )
 
         from app.pipeline import run_weekly_pipeline

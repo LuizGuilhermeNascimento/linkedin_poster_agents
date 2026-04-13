@@ -3,7 +3,7 @@ from __future__ import annotations
 import logging
 from pathlib import Path
 
-from app.config import OUTPUT_DIR, configure_runtime_paths, settings
+from app.config import OUTPUT_DIR, configure_runtime_paths, runtime_paths, settings
 
 logger = logging.getLogger(__name__)
 
@@ -39,7 +39,7 @@ def run_weekly_pipeline(force: bool = False) -> None:
     for i, result in enumerate(results, start=1):
         post_dir = output_dir / f"post_{i}"
         try:
-            run_post_pipeline(result, output_dir=post_dir, week=week_label)
+            run_post_pipeline(result, output_dir=post_dir, week=week_label, debug=runtime_paths.debug)
             print(f'  post_{i} → "{result.title}" ✓')
         except Exception as exc:
             logger.error("Error generating post_%d: %s", i, exc)

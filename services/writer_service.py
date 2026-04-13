@@ -26,6 +26,7 @@ def create_post(
     result: ResearchResult,
     output_dir: Path,
     week: str,
+    debug: bool = False,
 ) -> PostDraft:
     """
     Generates the text and illustration for a post and saves files to output_dir.
@@ -37,7 +38,7 @@ def create_post(
     _set_debug_log(output_dir)
 
     text = _generate_text(result)
-    image_path, image_url, image_credit, image_result = _fetch_image(result, output_dir, text)
+    image_path, image_url, image_credit, image_result = _fetch_image(result, output_dir, text, debug=debug)
 
     draft = PostDraft(
         id=str(uuid.uuid4()),
@@ -69,7 +70,7 @@ def _generate_text(result: ResearchResult) -> str:
         .replace("{source_url}", result.source_url)
     )
 
-    response_raw = llm.complete(prompt, max_tokens=8192)
+    response_raw = llm.complete(prompt, max_tokens=32768)
     _write_debug_log(agent_name="writer", prompt=prompt, raw_output=response_raw)
     return extract_post_content(response_raw)
 
@@ -78,6 +79,7 @@ def _fetch_image(
     result: ResearchResult,
     output_dir: Path,
     post_text: str,
+    debug: bool = False,
 ) -> tuple[Path | None, str | None, str | None, object]:
     """
     Fetches the image using the image pipeline, with code screenshot as a special case.
@@ -93,7 +95,7 @@ def _fetch_image(
             return image_path, None, "Generated via carbon.now.sh", None
         logger.info("Code screenshot failed — falling back to image pipeline")
 
-    image_result = get_best_image(result, output_dir)
+    image_result = get_best_image(result, output_dir, debug=debug)
 
     if image_result.image_path:
         return image_result.image_path, image_result.image_url, image_result.credit, image_result

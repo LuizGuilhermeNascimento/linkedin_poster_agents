@@ -90,9 +90,13 @@ def _collect_raw_results() -> list[dict]:
 def _rank_with_llm(raw_results: list[dict], n: int) -> list[ResearchResult]:
     prompt_template = RESEARCHER_PROMPT_PATH.read_text(encoding="utf-8")
     raw_results_text = json.dumps(raw_results, ensure_ascii=False, indent=2)
-    prompt = prompt_template.replace("{raw_results}", raw_results_text)
+    prompt = (
+        prompt_template
+        .replace("{n_posts}", str(n))
+        .replace("{raw_results}", raw_results_text)
+    )
 
-    response_raw = llm.complete(prompt, max_tokens=8192)
+    response_raw = llm.complete(prompt, max_tokens=32768)
 
     _write_debug_log(
         log_path=runtime_paths.researcher_log_file,

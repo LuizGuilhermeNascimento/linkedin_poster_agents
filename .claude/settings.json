@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(identify output/2026-16/post_1/image.png)",
+      "Bash(python3 -c \"from PIL import Image; imgs = ['output/2026-16/post_1/image.png','output/2026-16/post_2/image.png','output/2026-16/post_3/image.png','output/2026-16/post_5/image.png']; [print\\(f'{p}: {Image.open\\(p\\).size}'\\) for p in imgs]\")",
+      "Bash(python3 -c ':*)",
+      "Bash(file output/2026-16/post_1/images_rank/*.png)"
+    ]
+  }
+}

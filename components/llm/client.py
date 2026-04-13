@@ -10,7 +10,7 @@ def create_client() -> OpenAI:
     return OpenAI(base_url=settings.lmstudio_base_url, api_key="lm-studio")
 
 
-def complete(prompt: str, max_tokens: int = 8192) -> str:
+def complete(prompt: str, max_tokens: int = 32768) -> str:
     """
     Sends a prompt to the LLM and returns the response text.
 

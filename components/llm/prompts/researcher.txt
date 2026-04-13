@@ -26,7 +26,7 @@ Profissionais técnicos brasileiros e líderes pragmáticos que valorizam:
 
 ### OBJETIVO
 
-Selecionar os **3 melhores tópicos da semana** e estruturá-los no formato esperado pelo sistema.
+Selecionar os **{n_posts} melhores tópicos da semana** e estruturá-los no formato esperado pelo sistema.
 
 ---
 
@@ -63,7 +63,7 @@ Priorize:
 
 ### FORMATO DE SAÍDA (OBRIGATÓRIO)
 
-Retorne **APENAS um array JSON válido com exatamente 3 itens**.
+Retorne **APENAS um array JSON válido com exatamente {n_posts} itens**.
 
 Cada item deve seguir **EXATAMENTE** esta estrutura:
 

@@ -13,6 +13,7 @@ def run(
     result: ResearchResult,
     output_dir: Path,
     week: str,
+    debug: bool = False,
 ) -> PostDraft:
     """
     Full LinkedIn post pipeline: write text + fetch image → PostDraft.
@@ -21,4 +22,4 @@ def run(
     """
     from services import writer_service
 
-    return writer_service.create_post(result, output_dir=output_dir, week=week)
+    return writer_service.create_post(result, output_dir=output_dir, week=week, debug=debug)

@@ -5,6 +5,18 @@ from pathlib import Path
 
 
 @dataclass
+class ArxivFigure:
+    image_data: bytes
+    width: int
+    height: int
+    page_number: int    # 1-indexed
+    figure_index: int   # sequential 0-indexed across the PDF
+    caption: str = ""   # extracted caption text (may be empty)
+    confidence: float = 1.0   # reconstruction confidence score [0, 1]
+    element_count: int = 1    # number of raw image XObjects merged into this figure
+
+
+@dataclass
 class ImageCandidate:
     url: str
     source: str          # "github" | "huggingface" | "web" | "unsplash" | "arxiv"

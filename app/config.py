@@ -39,6 +39,7 @@ class RuntimePaths:
     writer_logs_dir: Path = OUTPUT_DIR / "logs"
     raw_results_file: Path | None = None
     raw_results_dir: Path = OUTPUT_DIR / "raw_results"
+    debug: bool = False
 
 
 runtime_paths = RuntimePaths()
@@ -47,10 +48,12 @@ runtime_paths = RuntimePaths()
 def set_runtime_inputs(
     raw_results_file: Path | None,
     raw_results_dir: Path | None,
+    debug: bool = False,
 ) -> None:
     """Registers runtime inputs from the CLI."""
     runtime_paths.raw_results_file = raw_results_file
     runtime_paths.raw_results_dir = raw_results_dir or (OUTPUT_DIR / "raw_results")
+    runtime_paths.debug = debug
 
 
 def configure_runtime_paths(week_output_dir: Path) -> None:
@@ -60,3 +63,24 @@ def configure_runtime_paths(week_output_dir: Path) -> None:
     runtime_paths.logs_dir = logs_dir
     runtime_paths.researcher_log_file = logs_dir / "researcher_agent.log"
     runtime_paths.writer_logs_dir = logs_dir
+
+
+@dataclass
+class FigureReconstructionConfig:
+    enabled: bool = True
+    # Spatial clustering thresholds (relative to page dimensions)
+    distance_threshold: float = 0.08
+    vertical_tolerance: float = 0.05
+    # Caption alignment
+    caption_enabled: bool = True
+    caption_max_distance: float = 0.15
+    # Page rendering for multi-image figure crops
+    rendering_fallback: bool = True
+    rendering_dpi: int = 300
+    # Minimum images per cluster to trigger reconstruction (singles pass through)
+    min_elements_per_figure: int = 2
+    # Coverage threshold below which HQ rendering is triggered
+    low_coverage_threshold: float = 0.3
+
+
+figure_reconstruction_config = FigureReconstructionConfig()

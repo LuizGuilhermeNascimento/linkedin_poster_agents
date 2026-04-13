@@ -10,7 +10,7 @@ from pipelines import image_pipeline
 logger = logging.getLogger(__name__)
 
 
-def get_best_image(research: ResearchResult, output_dir: Path) -> ImageResult:
+def get_best_image(research: ResearchResult, output_dir: Path, debug: bool = False) -> ImageResult:
     """
     Fetches the best image for a research result.
 
@@ -28,4 +28,4 @@ def get_best_image(research: ResearchResult, output_dir: Path) -> ImageResult:
         ImageResult — image_path is None if no suitable image was found.
     """
     output_path = output_dir / "image.png"
-    return image_pipeline.run(research, output_path)
+    return image_pipeline.run(research, output_path, debug=debug)
