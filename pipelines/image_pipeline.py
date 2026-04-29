@@ -191,10 +191,46 @@ def _generate_queries(intent: VisualIntentOutput) -> list[str]:
     additional = entities[1] if len(entities) > 1 else ""
 
     visual_terms_by_intent = {
-        "diagram": ["architecture diagram", "workflow diagram", "system overview", "github readme diagram"],
-        "screenshot": ["screenshot", "demo example", "github readme", "tutorial example"],
-        "conceptual": ["concept illustration", "visual explanation", "overview diagram", "explainer"],
-        "real_world": ["real world example", "use case", "application", "production example"],
+        "diagram": [
+            "architecture diagram",
+            "workflow diagram",
+            "system overview",
+            "data flow diagram",
+            "block diagram",
+            "sequence diagram",
+            "component diagram",
+            "github readme diagram",
+        ],
+        "screenshot": [
+            "screenshot",
+            "demo example",
+            "CLI demo",
+            "dashboard screenshot",
+            "interface example",
+            "app screenshot",
+            "github readme",
+            "tutorial example",
+        ],
+        "conceptual": [
+            "concept illustration",
+            "visual explanation",
+            "overview diagram",
+            "infographic",
+            "cheat sheet",
+            "mental model",
+            "comparison chart",
+            "explainer",
+        ],
+        "real_world": [
+            "real world example",
+            "use case",
+            "case study",
+            "production example",
+            "benchmark results",
+            "project showcase",
+            "deployment example",
+            "application",
+        ],
     }
 
     visual_terms = visual_terms_by_intent.get(intent.visual_intent, ["diagram", "example"])
