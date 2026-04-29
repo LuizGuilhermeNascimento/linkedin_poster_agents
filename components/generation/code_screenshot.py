@@ -32,8 +32,8 @@ def _screenshot_via_carbon(code: str, output_path: Path) -> bool:
 
     encoded = urllib.parse.quote(code)
     url = (
-        f"https://carbon.now.sh/?bg=rgba(171,184,195,1)"
-        f"&t=seti&wt=none&l=python&ds=true&dsyoff=20px"
+        f"https://carbon.now.sh/?bg=rgba%28171%2C184%2C195%2C1%29"
+        f"&t=dracula&wt=none&l=python&ds=true&dsyoff=20px"
         f"&dsblur=68px&wc=true&wa=true&pv=56px&ph=56px"
         f"&ln=false&fl=1&fm=Hack&fs=14px&lh=133%25"
         f"&si=false&es=2x&wm=false&code={encoded}"
@@ -69,7 +69,7 @@ def _screenshot_via_pygments(code: str, output_path: Path) -> bool:
         return False
 
     formatter = HtmlFormatter(
-        style="monokai",
+        style="native",
         full=True,
         title="Code",
         prestyles="padding: 24px; border-radius: 8px;",
