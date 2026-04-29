@@ -19,7 +19,7 @@ class WebImageSource(ImageSource):
 
     def search(self, query: str, max_results: int = 5) -> list[ImageCandidate]:
         try:
-            results = tavily_client.search(query, max_results=5)
+            results = tavily_client.search(query, max_results=max_results)
         except Exception as exc:
             logger.warning("Tavily search failed for '%s': %s", query, exc)
             return []
