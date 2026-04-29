@@ -1,0 +1,82 @@
+[
+  {
+    "score": 0.9486,
+    "url": "https://files.lmstudio.ai/mlx-unified-3.png",
+    "source": "web",
+    "alt_text": "Introducing the unified multi-modal `MLX` engine architecture in LM Studio | LM Studio Blog | LM Studio",
+    "width": 3356,
+    "height": 1760,
+    "query_origin": "MLX: architecture diagram",
+    "context_text": "og:image"
+  },
+  {
+    "score": 0.9173,
+    "url": "https://huggingface.co/front/thumbnails/search/full-text.png",
+    "source": "huggingface",
+    "alt_text": "Full Text Search - Hugging Face",
+    "width": 1200,
+    "height": 675,
+    "query_origin": "MLX: system overview",
+    "context_text": "og:image"
+  },
+  {
+    "score": 0.845,
+    "url": "https://images.squarespace-cdn.com/content/v1/5acbdd3a25bf024c12f4c8b4/a9237a5f-76df-4001-8efd-c2a0fe042ac8/DKC+Photo+1.jpeg",
+    "source": "web",
+    "alt_text": "",
+    "width": 1024,
+    "height": 1024,
+    "query_origin": "MLX: data flow diagram",
+    "context_text": "About the Author"
+  },
+  {
+    "score": 0.8446,
+    "url": "https://www.thoughtworks.com/radar/languages-and-frameworks/mlx/meta.jpeg",
+    "source": "web",
+    "alt_text": " MLX | Technology Radar | Thoughtworks ",
+    "width": 1200,
+    "height": 628,
+    "query_origin": "MLX: system overview",
+    "context_text": "og:image"
+  },
+  {
+    "score": 0.7733,
+    "url": "https://docs.aws.amazon.com/images/wellarchitected/latest/machine-learning-lens/images/ml-lifecycle-phases-and-expanded-components.png",
+    "source": "web",
+    "alt_text": "ML lifecycle with detailed phases and extended components",
+    "width": 1362,
+    "height": 905,
+    "query_origin": "MLX: architecture diagram",
+    "context_text": "Figure 4: ML lifecycle with detailed phases and extended components"
+  },
+  {
+    "score": 0.6802,
+    "url": "https://images.squarespace-cdn.com/content/v1/5acbdd3a25bf024c12f4c8b4/1589228384793-A4NACS16C7PJFJIW2AYI/Data+Flow.jpg",
+    "source": "web",
+    "alt_text": "",
+    "width": 828,
+    "height": 467,
+    "query_origin": "MLX: data flow diagram",
+    "context_text": "Data Flow — The Science of Machine Learning & AI"
+  },
+  {
+    "score": 0.595,
+    "url": "https://edrawcloudpublicus.s3.amazonaws.com/work/4671435/2023-12-20/1703096925/thumb.png",
+    "source": "web",
+    "alt_text": "Machine Learning Workflow Diagram | EdrawMax Templates",
+    "width": 340,
+    "height": 588,
+    "query_origin": "MLX: workflow diagram",
+    "context_text": "og:image"
+  },
+  {
+    "score": 0.385,
+    "url": "https://www.edrawmax.com/templates/file-shadow.png",
+    "source": "web",
+    "alt_text": "shadow",
+    "width": 121,
+    "height": 43,
+    "query_origin": "MLX: workflow diagram",
+    "context_text": "Templates Community /Machine Learning Workflow DiagramMachine Learning Workflow DiagramMihir AgarwalPublished on 2023-12"
+  }
+]

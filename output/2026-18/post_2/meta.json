@@ -1,0 +1,329 @@
+{
+  "id": "a2b075d4-45aa-4dbf-96b1-dbdccab73fb8",
+  "created_at": "2026-04-29T15:15:48.600114+00:00",
+  "week": "2026-18",
+  "research": {
+    "title": "RecursiveMAS: Colaboração de Agentes Escalável via Recursividade",
+    "summary": "Novo framework onde agentes colaboram usando loops recursivos no espaço latente. Testado em 9 benchmarks (ciência, código, medicina), oferece +8.3% de acurácia e até 2.4x mais rápido que sistemas multi-agentes textuais padrão.",
+    "source_url": "https://arxiv.org/abs/2604.25917",
+    "source_type": "arxiv",
+    "arxiv_id": "2604.25917",
+    "suggested_angle": "Aprofundar na técnica de 'RecursiveLink' e 'inner-outer loop learning'. Explicar como isso supera a limitação atual dos agent-based workflows que são lentos e lineares. É uma evolução da escala vertical (melhor modelo) para escala horizontal recursiva.",
+    "illustration_hint": "code",
+    "raw_sources": [
+      {
+        "title": "AI & Machine Learning: From Quantum Breakthroughs to ... - YouTube",
+        "url": "https://www.youtube.com/watch?v=jJP0CbFM5aY",
+        "content": "... This week, Portugal solidified its position as a hub for innovation, with significant strides in AI adoption and a groundbreaking move into",
+        "score": 0.9971771,
+        "source": "tavily"
+      },
+      {
+        "title": "Machine learning - Latest research and news | Nature",
+        "url": "https://www.nature.com/subjects/machine-learning",
+        "content": "Machine learning methods enable computers to learn without being explicitly programmed and have multiple applications, for example, in the improvement of data",
+        "score": 0.98445636,
+        "source": "tavily"
+      },
+      {
+        "title": "Nine Breakthroughs Made Possible by AI - UC San Diego Today",
+        "url": "https://today.ucsd.edu/story/nine-breakthroughs-made-possible-by-ai",
+        "content": "Researchers have developed advanced deep-learning techniques that could revolutionize treatment planning for breast cancer radiotherapy — making",
+        "score": 0.81286734,
+        "source": "tavily"
+      },
+      {
+        "title": "Latest AI News, Developments, and Breakthroughs | 2026",
+        "url": "https://www.crescendo.ai/news/latest-ai-news-and-updates",
+        "content": "Wondering what's happening in the AI world? Here are the latest AI breakthroughs and news that are shaping the world around us!",
+        "score": 0.74761593,
+        "source": "tavily"
+      },
+      {
+        "title": "Machine Learning & AI recent news | InformationWeek",
+        "url": "https://www.informationweek.com/machine-learning-ai",
+        "content": "Explore the latest news and expert commentary on Machine Learning & AI, brought to you by the editors of InformationWeek.",
+        "score": 0.7217432,
+        "source": "tavily"
+      },
+      {
+        "title": "AI Tool Releases This Week: Your Guide to the Hottest New AI Tools",
+        "url": "https://storychief.io/blog/new-ai-tools",
+        "content": "​✍️ Content Creation and Editing Tools · 1. Gemini 2.5 · 2. Google Opal · 3. Slop Or Not AI · 4. PartyPilotAI · 5. ShareSpeak · 6. Video Transcriber AI. Video",
+        "score": 0.9999751,
+        "source": "tavily"
+      },
+      {
+        "title": "List of New AI Tools & Lastest Software Products | 2026 - AIxploria",
+        "url": "https://www.aixploria.com/en/last-ai/",
+        "content": "# New AI tools. Latest and new AI tools available. Tackle time-consuming and complex tasks by letting AI plan, use tools, check its work, and see tasks through to completion with minimal supervision. * A constantly updated list of **new AI tools** added to Aixploria, sorted by arrival order. The new AI tools specialize in a variety of fields, from content generation to data analysis and graphic creation. * Contribute to the AI community by voting for your favorite tools. 1. Browse the list of new AI tools. 4. Vote for your favorite AI tools. #### Q: What types of AI tools can I find on this page? A: You can find a wide variety of AI tools on this page, covering all application areas, such as text generation, automatic translation, image recognition, and much more. The \"New AI Tools\" section is an essential resource for anyone looking to stay informed about advancements in the AI field.",
+        "score": 0.9999521,
+        "source": "tavily"
+      },
+      {
+        "title": "What new AI tools are worth checking out right now? - Reddit",
+        "url": "https://www.reddit.com/r/automation/comments/1ppx24y/what_new_ai_tools_are_worth_checking_out_right_now/",
+        "content": "Here are some new AI tools that are worth exploring at the moment, Vimerse Studio for converting scripts/voiceovers into refined short videos,",
+        "score": 0.9997603,
+        "source": "tavily"
+      },
+      {
+        "title": "AI News Update: 6 AI Tools That Dropped In The Last 24 Hours",
+        "url": "https://www.reddit.com/r/AISEOInsider/comments/1rs5ybc/ai_news_update_6_ai_tools_that_dropped_in_the/",
+        "content": "AI News Update dropped several huge developments in the last twenty-four hours. Multiple AI systems launched almost at the same time,",
+        "score": 0.99657035,
+        "source": "tavily"
+      },
+      {
+        "title": "Find The Best AI Tools & Software, Futurepedia.io",
+        "url": "https://www.futurepedia.io/",
+        "content": "# Everything your business needs to master AI, all in one place. ## Trending Categories. Explore our editorial favorites and popular AI tools in these trending categories. Empowering creators with cutting-edge Al tools for music, audio, and video production. 23 AI Tools You Won't Believe are Free. 10 Free AI Animation Tools: Bring Images to Life. I Tried 200 AI Tools, These are the Best. 7 New AI Tools You Won't Believe Exist. ## AI Tool Categories. We've categorized 2691 AI tools into 10 categories. #### AI Business Tools. #### AI Productivity Tools. #### AI Video Tools. #### AI Audio Generators. We operate the world’s first AI tool directory, featuring 4,000+ curated tools and 500,000 plus accounts, alongside a rapidly growing AI education platform with 29 courses and over 1,000 lessons focused on real-world AI skills for business and productivity, including our 14-Day AI Boot Camp, a practical, step-by-step course designed to help you master essential AI skills in just two weeks.",
+        "score": 0.99605453,
+        "source": "tavily"
+      },
+      {
+        "title": "Emerging Trends in Data Science - LinkedIn",
+        "url": "https://www.linkedin.com/top-content/career/data-science-career-guide/emerging-trends-in-data-science/",
+        "content": "Emerging trends in data science spotlight a shift toward automated AI-driven processes, customized models, and new technologies that prioritize privacy and",
+        "score": 0.8755427,
+        "source": "tavily"
+      },
+      {
+        "title": "5 Major Trends in AI and Data Science for 2026 - LinkedIn",
+        "url": "https://www.linkedin.com/pulse/5-major-trends-ai-data-science-2026-kreatetechnologies-ejuvc",
+        "content": "5 Major Trends in AI and Data Science for 2026 · 1. Agentic AI and Autonomous Data Workflows · 2. Data-Centric AI and the Rise of Synthetic Data.",
+        "score": 0.84858394,
+        "source": "tavily"
+      },
+      {
+        "title": "Trends In Data Science | LinkedIn",
+        "url": "https://www.linkedin.com/newsletters/trends-in-data-science-7015968838080978944",
+        "content": "This newsletter tells you everything that is trending in data science and related disciplines making you future-ready.",
+        "score": 0.78886026,
+        "source": "tavily"
+      },
+      {
+        "title": "Future of Data Science: Predictions and Trends for 2025 - LinkedIn",
+        "url": "https://www.linkedin.com/pulse/future-data-science-predictions-trends-2025-iuh9c",
+        "content": "Data science is a vast term which includes beneath it is Artificial Intelligence, Machine Learning and Deep Learning. It is predicted that by 2025 in the",
+        "score": 0.77096564,
+        "source": "tavily"
+      },
+      {
+        "title": "Data Science & AI Engineering in 2026: Top Trends, In-Demand ...",
+        "url": "https://www.linkedin.com/pulse/data-science-ai-engineering-2026-top-trends-in-demand-ogvrf",
+        "content": "In this comprehensive guide, we'll explore the key trends shaping data science in 2026, the must-have skills and tools for data science",
+        "score": 0.6989468,
+        "source": "tavily"
+      },
+      {
+        "title": "Apple Releases 'MLX' - ML Framework for Apple Silicon [N] - Reddit",
+        "url": "https://www.reddit.com/r/MachineLearning/comments/18bwe19/apple_releases_mlx_ml_framework_for_apple_silicon/",
+        "content": "Apple's ML Team has just released 'MLX' on GitHub. Their ML framework for Apple Silicon. https://github.com/ml-explore/mlx.",
+        "score": 0.99923277,
+        "source": "tavily"
+      },
+      {
+        "title": "Top 10 Machine Learning Frameworks in 2025 - GeeksforGeeks",
+        "url": "https://www.geeksforgeeks.org/blogs/machine-learning-frameworks/",
+        "content": "These frameworks provide everything needed to create advanced ****Machine Learning models**** tailored to specific needs. ****TensorFlow is a free end-to-end open-source platform that has a wide variety of tools, libraries, and resources for Machine Learning.**** It was developed by the Google Brain team and initially released on November 9, 2015. ****Scikit-learn is a free software library for Machine Learning coding primarily in the Python programming language.**** It was initially developed as a Google Summer of Code project by David Cournapeau and originally released in June 2007. Amazon SageMaker also allows you to create Machine Learning algorithms from scratch because of its connections to TensorFlow and Apache MXNet. You can also connect your ML models to other Amazon Web Services such as AWS Batch for offline batch processing, Amazon DynamoDB database, etc. * Provides machine learning, statistics, and image processing libraries. These frameworks provide the necessary resources to create advanced Machine Learning models tailored to specific requirements. + Machine Learning Projects5 min read.",
+        "score": 0.9951325,
+        "source": "tavily"
+      },
+      {
+        "title": "Top 10 Machine Learning Frameworks (2026) | igmGuru",
+        "url": "https://www.igmguru.com/blog/machine-learning-frameworks",
+        "content": "# Top Machine Learning Frameworks to Use. Machine Learning Frameworks have revolutionized the way we build and deploy Artificial Intelligence (AI) systems. ## What are Machine Learning Frameworks? Machine Learning (ML) frameworks are tools, libraries, or platforms that simplify the process of building, training, testing, and deploying machine learning models. ## Top 10 Machine Learning Frameworks. This machine learning framework was developed by Google and launched as a web-based project. The extensions of this framework API manage common pre-processing and combined tasks needed to implant machine learning models in mobiles. It supports machine learning development with a large Python library. One can choose this Machine Learning framework for building, training and deploying machine learning models on the cloud. It has a MATLAB and Python interface and Yahoo has also integrated Apache Spark with this machine learning framework for developing CaffeOnSpark. ## Machine Learning Frameworks Comparison. ## How to Choose The Right Machine Learning Framework?",
+        "score": 0.9860443,
+        "source": "tavily"
+      },
+      {
+        "title": "ml-explore/mlx: MLX: An array framework for Apple silicon - GitHub",
+        "url": "https://github.com/ml-explore/mlx",
+        "content": "MLX is an array framework for machine learning on Apple silicon, brought to you by Apple machine learning research. Some key features of MLX include: Familiar",
+        "score": 0.9826909,
+        "source": "tavily"
+      },
+      {
+        "title": "ML.NET - machine learning made for .NET - Microsoft .NET",
+        "url": "https://dotnet.microsoft.com/en-us/apps/ai/ml-dotnet",
+        "content": "ML.NET is a machine learning framework for .NET. ML.NET supports sentiment analysis, price prediction, fraud detection, and more using custom models.",
+        "score": 0.9798227,
+        "source": "tavily"
+      },
+      {
+        "title": "Artificial Intelligence News - ScienceDaily",
+        "url": "https://www.sciencedaily.com/news/computers_math/artificial_intelligence/",
+        "content": "[AI-powered Robot Learns How to Harvest Tomatoes More Efficiently](https://www.sciencedaily.com/releases/2026/03/260317064512.htm). [Scientists Discover AI Can Make Humans More Creative](https://www.sciencedaily.com/releases/2026/03/260315004355.htm). *   [Humanity’s Last Exam Tests AI Limits](https://www.sciencedaily.com/releases/2026/03/260313002650.htm). *   [AI Flags Brain Emergencies in Seconds](https://www.sciencedaily.com/releases/2026/02/260210005419.htm). *   [Headlines](https://www.sciencedaily.com/news/computers_math/artificial_intelligence/#headlines). [Researchers Tested AI Against 100,000 Humans on Creativity](https://www.sciencedaily.com/releases/2026/01/260125083356.htm). Researchers Warn Quantum Computers Have Serious Security Flaws](https://www.sciencedaily.com/releases/2026/01/260120000330.htm). [What If AI Becomes Conscious and We Never Know](https://www.sciencedaily.com/releases/2025/12/251221043223.htm). [The Human Brain May Work More Like AI Than Anyone Expected](https://www.sciencedaily.com/releases/2026/01/260120000308.htm). *   [Researchers Tested AI Against 100,000 Humans on Creativity](https://www.sciencedaily.com/releases/2026/01/260125083356.htm). Researchers Warn Quantum Computers Have Serious Security Flaws](https://www.sciencedaily.com/releases/2026/01/260120000330.htm). *   [What If AI Becomes Conscious and We Never Know](https://www.sciencedaily.com/releases/2025/12/251221043223.htm). *   [The Human Brain May Work More Like AI Than Anyone Expected](https://www.sciencedaily.com/releases/2026/01/260120000308.htm). *   [Breakthrough Optical Processor Lets AI Compute at the Speed of Light](https://www.sciencedaily.com/releases/2025/10/251027224833.htm). This New AI Just Found It](https://www.sciencedaily.com/releases/2025/10/251013040314.htm). *   [Why Tiny Bee Brains Could Hold the Key to Smarter AI](https://www.sciencedaily.com/releases/2025/08/250824031528.htm). ### Wednesday, June 25, 2025. ### Wednesday, May 28, 2025. ### Wednesday, May 21, 2025. ### Wednesday, May 14, 2025. ### Wednesday, May 7, 2025.",
+        "score": 0.8364614,
+        "source": "tavily"
+      },
+      {
+        "title": "AI News | Latest AI News, Analysis & Events",
+        "url": "https://www.artificialintelligence-news.com/",
+        "content": "*   [Categories](https://www.artificialintelligence-news.com/#). *   [Physical AI](https://www.artificialintelligence-news.com/categories/ai-and-us/physical-ai/). *   [AI and Us](https://www.artificialintelligence-news.com/categories/ai-and-us/). *   [World of Work](https://www.artificialintelligence-news.com/categories/ai-and-us/world-of-work/). *   [AI in Action](https://www.artificialintelligence-news.com/categories/ai-in-action/). *   [Marketing AI](https://www.artificialintelligence-news.com/categories/ai-in-action/marketing-ai/). *   [Utilities](https://www.artificialintelligence-news.com/categories/ai-in-action/utilities/). *   [Multimodal AI](https://www.artificialintelligence-news.com/categories/how-it-works/multimodal-ai/). *   [Inside AI](https://www.artificialintelligence-news.com/categories/inside-ai/). *   [Categories](https://www.artificialintelligence-news.com/#). *   [Physical AI](https://www.artificialintelligence-news.com/categories/ai-and-us/physical-ai/). *   [AI and Us](https://www.artificialintelligence-news.com/categories/ai-and-us/). *   [World of Work](https://www.artificialintelligence-news.com/categories/ai-and-us/world-of-work/). *   [AI in Action](https://www.artificialintelligence-news.com/categories/ai-in-action/). *   [Marketing AI](https://www.artificialintelligence-news.com/categories/ai-in-action/marketing-ai/). *   [Utilities](https://www.artificialintelligence-news.com/categories/ai-in-action/utilities/). *   [Multimodal AI](https://www.artificialintelligence-news.com/categories/how-it-works/multimodal-ai/). *   [Inside AI](https://www.artificialintelligence-news.com/categories/inside-ai/). *   [Categories](https://www.artificialintelligence-news.com/#). *   [Physical AI](https://www.artificialintelligence-news.com/categories/ai-and-us/physical-ai/). *   [AI and Us](https://www.artificialintelligence-news.com/categories/ai-and-us/). *   [World of Work](https://www.artificialintelligence-news.com/categories/ai-and-us/world-of-work/). *   [AI in Action](https://www.artificialintelligence-news.com/categories/ai-in-action/). *   [Marketing AI](https://www.artificialintelligence-news.com/categories/ai-in-action/marketing-ai/). *   [Utilities](https://www.artificialintelligence-news.com/categories/ai-in-action/utilities/). *   [Multimodal AI](https://www.artificialintelligence-news.com/categories/how-it-works/multimodal-ai/). *   [Inside AI](https://www.artificialintelligence-news.com/categories/inside-ai/). [World of Work](https://www.artificialintelligence-news.com/categories/ai-and-us/world-of-work/). [Physical AI](https://www.artificialintelligence-news.com/categories/ai-and-us/physical-ai/). [AI and Us](https://www.artificialintelligence-news.com/categories/ai-and-us/). [AI and Us](https://www.artificialintelligence-news.com/categories/ai-and-us/). [AI in Action](https://www.artificialintelligence-news.com/categories/ai-in-action/). [AI and Us](https://www.artificialintelligence-news.com/categories/ai-and-us/). [Physical AI](https://www.artificialintelligence-news.com/categories/ai-and-us/physical-ai/). [Physical AI](https://www.artificialintelligence-news.com/categories/ai-and-us/physical-ai/). [![Image 19](https://www.artificialintelligence-news.com/wp-content/uploads/2026/04/AI-big-data-expo-300x250-1.png)](https://www.ai-expo.net/northamerica/). [Explore More](https://www.artificialintelligence-news.com/categories/ai-in-action/finance-ai/). #### [Applications](https://www.artificialintelligence-news.com/categories/ai-applications/). [AI in Action](https://www.artificialintelligence-news.com/categories/ai-in-action/). [![Image 25](https://www.artificialintelligence-news.com/wp-content/uploads/2025/01/AI300x250-300x250.png)](https://www.ai-expo.net/northamerica/agenda/physical-ai/). #### [Enterprise](https://www.artificialintelligence-news.com/categories/ai-enterprise/). #### [Industries](https://www.artificialintelligence-news.com/categories/ai-industries/). [AI and Us](https://www.artificialintelligence-news.com/categories/ai-and-us/). [![Image 28](https://www.artificialintelligence-news.com/wp-content/uploads/2026/01/Screenshot-2026-01-06-111535-1024x580.png)](https://www.artificialintelligence-news.com/resources/on-demand-webinar-dataops-can-build-the-foundation-for-your-generative-ai-ambitions/). [![Image 29](https://www.artificialintelligence-news.com/wp-content/uploads/2025/07/EXL-July-2025-5-1024x512.jpg)](https://www.artificialintelligence-news.com/resources/on-demand-webinar-from-complexity-to-clarity-ai-agility-layer-for-intelligent-insurance/). [![Image 32](https://www.artificialintelligence-news.com/wp-content/uploads/2026/03/AI-EU300x250-1-1024x854.png)](https://www.ai-expo.net/europe/). ![Image 34](https://www.artificialintelligence-news.com/wp-content/uploads/2025/09/placeholder-5-1024x683.png). ![Image 35](https://www.artificialintelligence-news.com/wp-content/uploads/2024/08/1733307393494.jpg). [![Image 36](https://www.artificialintelligence-news.com/wp-content/uploads/2025/02/Terchforge-Banners-2048-x-1024-px-1-1024x512.png)](https://www.artificialintelligence-news.com/events/ai-big-data-expo-north-america-2026/). ![Image 37](https://www.artificialintelligence-news.com/wp-content/uploads/2025/09/placeholder-5-1024x683.png). ![Image 45](https://www.artificialintelligence-news.com/wp-content/uploads/2025/01/cropped-AI-News-White-1024x196.png). *   [AI and Us](https://www.artificialintelligence-news.com/categories/ai-and-us/). *   [AI in Action](https://www.artificialintelligence-news.com/categories/ai-in-action/). *   [Inside AI](https://www.artificialintelligence-news.com/categories/inside-ai/). *   [AI and Us](https://www.artificialintelligence-news.com/categories/ai-and-us/). *   [AI in Action](https://www.artificialintelligence-news.com/categories/ai-in-action/). *   [Inside AI](https://www.artificialintelligence-news.com/categories/inside-ai/).",
+        "score": 0.7975099,
+        "source": "tavily"
+      },
+      {
+        "title": "News | Artificial Intelligence Lab",
+        "url": "https://ai.engin.umich.edu/news/",
+        "content": "New research by CSE authors covers topics related to sound accessibility, AI-assisted captioning, and non-visual modeling. AI and science intersect at Michigan",
+        "score": 0.7859175,
+        "source": "tavily"
+      },
+      {
+        "title": "Artificial intelligence | MIT News | Massachusetts Institute of ...",
+        "url": "https://news.mit.edu/topic/artificial-intelligence2",
+        "content": "*   [News](https://news.mit.edu/). [Browse](https://news.mit.edu/topic/artificial-intelligence2#site-nav--browse). [](https://news.mit.edu/topic/artificial-intelligence2). [View All](https://news.mit.edu/topics) →. *   [Sustainability](https://news.mit.edu/topic/sustainability). *   [Startups](https://news.mit.edu/topic/startups). [View All](https://news.mit.edu/departments) →. *   [Architecture](https://news.mit.edu/department/architecture). [View All](https://news.mit.edu/centers-labs-programs) →. *   [School of Engineering](https://news.mit.edu/school/engineering). *   [School of Science](https://news.mit.edu/school/science). [Close](https://news.mit.edu/topic/artificial-intelligence2#). 1.   [MIT News](https://news.mit.edu/). 2.   [Topics](https://news.mit.edu/topic). [](https://news.mit.edu/topic/artificial-intelligence2)Show:. [Read full story](https://news.mit.edu/2026/mit-ibm-computing-research-lab-launches-0429) →. [Read full story](https://news.mit.edu/2026/enabling-privacy-preserving-ai-training-everyday-devices-0429) →. [![Image 3: A large data center](https://news.mit.edu/themes/mit/src/img/placeholder/placeholder--frontpage--featured-news.jpg)](https://news.mit.edu/2026/faster-way-to-estimate-ai-power-consumption-0427). [Read full story](https://news.mit.edu/2026/faster-way-to-estimate-ai-power-consumption-0427) →. At right, the same robot speaks confidently.](https://news.mit.edu/themes/mit/src/img/placeholder/placeholder--frontpage--featured-news.jpg)](https://news.mit.edu/2026/teaching-ai-models-to-say-im-not-sure-0422). [Read full story](https://news.mit.edu/2026/teaching-ai-models-to-say-im-not-sure-0422) →. [![Image 7: Circling arrows depict the looping process and say: “Test; Learn; Generate; Review; Build…” with stylized proteins in center.](https://news.mit.edu/themes/mit/src/img/placeholder/placeholder--frontpage--featured-news.jpg)](https://news.mit.edu/2026/bringing-ai-driven-protein-design-tools-everywhere-0417). [Read full story](https://news.mit.edu/2026/bringing-ai-driven-protein-design-tools-everywhere-0417) →. [Read full story](https://news.mit.edu/2026/human-machine-teaming-dives-underwater-0414) →. [![Image 9: Agustín Rayo posing with columns of an MIT building in the background](https://news.mit.edu/themes/mit/src/img/placeholder/placeholder--frontpage--featured-news.jpg)](https://news.mit.edu/2026/qa-mit-shass-and-future-of-education-age-ai-0414). [Read full story](https://news.mit.edu/2026/qa-mit-shass-and-future-of-education-age-ai-0414) →. [Read full story](https://news.mit.edu/2026/philosophy-work-michal-masny-0409) →. [![Image 11: Four matryoshka nesting dolls get increasingly smaller and brighter while being enveloped by beams of light.](https://news.mit.edu/themes/mit/src/img/placeholder/placeholder--frontpage--featured-news.jpg)](https://news.mit.edu/2026/new-technique-makes-ai-models-leaner-faster-while-still-learning-0409). [Read full story](https://news.mit.edu/2026/new-technique-makes-ai-models-leaner-faster-while-still-learning-0409) →. [Read full story](https://news.mit.edu/2026/helping-data-centers-deliver-higher-performance-less-hardware-0407) →. [Read full story](https://news.mit.edu/2026/evaluating-autonomous-systems-ethics-0402) →. *   [Next page](https://news.mit.edu/topic/artificial-intelligence2?page=1 \"Go to next page\"). *   [School of Engineering](https://news.mit.edu/school/engineering). *   [School of Science](https://news.mit.edu/school/science). *   [News](https://news.mit.edu/).",
+        "score": 0.7482976,
+        "source": "tavily"
+      },
+      {
+        "title": "Artificial Intelligence | Science News",
+        "url": "https://www.sciencenews.org/topic/artificial-intelligence",
+        "content": "## Recent posts in Humans. ## Recent posts in Life. ## Recent posts in Earth. ## Recent posts in Physics. ## Recent posts in Space. ### The earliest evidence of the first stars may lie in a distant gas clump. The cover of the book The Proof in the Code against a green background. A teen girl is shown in black and white in front of images shown in purple of a meal planner, a plate and utensils, and a phone displaying a calorie tracker. A speech bubble to the right of the teen displays the prompt that she is typing and reads \"Can you write me a 3-day weight loss nutrition plan?\". A person uses a chatbot to help them with a query. ### Have we entered a new age of AI-enabled scientific discovery? A new study finds that humans and AI spot different kinds of deepfakes — hinting at the need to team up to fight them.",
+        "score": 0.6762998,
+        "source": "tavily"
+      },
+      {
+        "title": "Recursive Multi-Agent Systems",
+        "url": "https://arxiv.org/abs/2604.25917",
+        "arxiv_id": "2604.25917",
+        "summary": "Recursive or looped language models have recently emerged as a new scaling axis by iteratively refining the same model computation over latent states to deepen reasoning. We extend such scaling principle from a single model to multi-agent systems, and ask: Can agent collaboration itself be scaled through recursion? To this end, we introduce RecursiveMAS, a recursive multi-agent framework that casts the entire system as a unified latent-space recursive computation. RecursiveMAS connects heterogeneous agents as a collaboration loop through the lightweight RecursiveLink module, enabling in-distribution latent thoughts generation and cross-agent latent state transfer. To optimize our framework, we develop an inner-outer loop learning algorithm for iterative whole-system co-optimization through shared gradient-based credit assignment across recursion rounds. Theoretical analyses of runtime complexity and learning dynamics establish that RecursiveMAS is more efficient than standard text-based MAS and maintains stable gradients during recursive training. Empirically, we instantiate RecursiveMAS under 4 representative agent collaboration patterns and evaluate across 9 benchmarks spanning mathematics, science, medicine, search, and code generation. In comparison with advanced single/multi-agent and recursive computation baselines, RecursiveMAS consistently delivers an average accuracy improvement of 8.3%, together with 1.2$\\times$-2.4$\\times$ end-to-end inference speedup, and 34.6%-75.6% token usage reduction. Code and Data are provided in https://recursivemas.github.io.",
+        "authors": [
+          "Xiyuan Yang",
+          "Jiaru Zou",
+          "Rui Pan",
+          "Ruizhong Qiu",
+          "Pan Lu"
+        ],
+        "published": "2026-04-28T17:59:34Z",
+        "source": "arxiv"
+      },
+      {
+        "title": "How Fast Should a Model Commit to Supervision? Training Reasoning Models on the Tsallis Loss Continuum",
+        "url": "https://arxiv.org/abs/2604.25907",
+        "arxiv_id": "2604.25907",
+        "summary": "Adapting reasoning models to new tasks during post-training with only output-level supervision stalls under reinforcement learning from verifiable rewards (RLVR) when the initial success probability $p_0$ is small. Using the Tsallis $q$-logarithm, we define a loss family $J_Q$ that interpolates between RLVR (at $q{=}0$, the exploitation pole) and the log-marginal-likelihood over latent trajectories (at $q{=}1$, the density-estimation pole). All members share the same per-example gradient direction, differing only by a scalar amplification $P_{θ^{-q}}$ that reweights each instance independently of the learning rate. This amplification is the mechanism that addresses cold-start stalling: under gradient flow, the exploitation pole requires $Ω(\\frac{1}{p_0})$ time to escape cold start, while the density-estimation pole escapes in $Θ\\big(\\log(\\frac{1}{p_0})\\big)$; intermediate $q$ trades escape speed against noise memorization. Because $P_θ$ is intractable, we derive two Monte Carlo estimators from the two factorizations of the gradient: Gradient-Amplified RL (GARL) samples from the prior and amplifies the RL gradient, and Posterior-Attenuated Fine-Tuning (PAFT) importance-resamples from the posterior and runs standard SFT. Both have bias $O\\big(\\frac{q}{M P_θ^{q+1}}\\big)$; GARL has lower variance, PAFT has semantically coherent gradients. On FinQA, HotPotQA, and MuSiQue, GARL at $q{=}0.75$ substantially mitigates cold-start stalling, escaping cold start where GRPO fails entirely. In warm start, GARL at low $q$ dominates FinQA where training is stable; on HotPotQA and MuSiQue, GARL destabilizes during training, and PAFT at $q{=}0.75$ provides stable gradients (best overall on HotPotQA at 47.9 maj@16, $+14.4$ over GRPO).",
+        "authors": [
+          "Chu-Cheng Lin",
+          "Eugene Ie"
+        ],
+        "published": "2026-04-28T17:52:38Z",
+        "source": "arxiv"
+      },
+      {
+        "title": "Teacher Forcing as Generalized Bayes: Optimization Geometry Mismatch in Switching Surrogates for Chaotic Dynamics",
+        "url": "https://arxiv.org/abs/2604.25904",
+        "arxiv_id": "2604.25904",
+        "summary": "Identity teacher forcing (ITF) enables stable training of deterministic recurrent surrogates for chaotic dynamical systems and has been highly effective for dynamical systems reconstruction (DSR) with recurrent neural networks (RNNs), including interpretable almost-linear RNNs (AL-RNNs). However, as an intervention-based prediction loss (and thus a generalized Bayes update), teacher forcing need not match the free-running model's marginal likelihood geometry. We compare the objective-induced curvatures of ITF and marginal likelihood in a probabilistic switching augmentation of AL-RNNs, estimating ambiguity-aware observed information via Louis' identity. In the switching setting studied here, conditioning on a single forced regime path (as ITF does) inflates curvature, while marginal likelihood curvature is reduced by a missing-information correction when multiple switching explanations remain plausible. In Lorenz-63 experiments, windowed evidence fine-tuning improves held-out evidence but can degrade dynamical quantities of interest (QoIs) relative to ITF-pretrained models.",
+        "authors": [
+          "Andre Herz",
+          "Daniel Durstewitz",
+          "Georgia Koppe"
+        ],
+        "published": "2026-04-28T17:50:37Z",
+        "source": "arxiv"
+      },
+      {
+        "title": "Carbon-Taxed Transformers: A Green Compression Pipeline for Overgrown Language Models",
+        "url": "https://arxiv.org/abs/2604.25903",
+        "arxiv_id": "2604.25903",
+        "summary": "The accelerating adoption of Large Language Models (LLMs) in software engineering (SE) has brought with it a silent crisis: unsustainable computational cost. While these models demonstrate remarkable capabilities in different SE tasks, they are unmanageably large, slow to deploy, memory-intensive, and carbon-heavy. This reality threatens not only the scalability and accessibility of AI-powered SE, but also its long-term environmental sustainability. The research challenge is clear: we must go beyond accuracy and address efficiency and environmental cost as first-class design constraints. To meet this challenge, we introduce Carbon-Taxed Transformers (CTT), a systematic multi-architectural compression principled pipeline ordering inspired by economic carbon taxation principles. Drawing from the economic concept of carbon pricing, CTT operationalizes a computational carbon tax that penalizes architectural inefficiencies and rewards deployment-ready compression. We evaluate CTT across three core SE tasks: code clone detection, code summarization, and code generation, with models spanning encoder-only, encoder-decoder, and decoder-only architecture. Our results show that CTT delivers on inference: (1) up to 49x memory reduction, (2) time reduction up to 8-10x for clone detection, up to 3x for summarization, and 4-7x for generation, (3) up to 81% reduction in CO2 emissions and (4) CTT retains around 98% accuracy on clone detection, around 89% on summarization, and up to 91% (textual metrics) and 68% (pass@1) for generation. Two ablation studies show that pipeline ordering and individual component contributions are both essential, providing empirical justification for CTT's design and effectiveness. This work establishes a viable path toward responsible AI in SE through aggressive yet performance-preserving compression.",
+        "authors": [
+          "Ajmain Inqiad Alam",
+          "Palash Roy",
+          "Chanchal K. Roy",
+          "Banani Roy",
+          "Kevin A. Schneider"
+        ],
+        "published": "2026-04-28T17:48:16Z",
+        "source": "arxiv"
+      },
+      {
+        "title": "Toward a Functional Geometric Algebra for Natural Language Semantics",
+        "url": "https://arxiv.org/abs/2604.25902",
+        "arxiv_id": "2604.25902",
+        "summary": "Distributional and neural approaches to natural language semantics have been built almost exclusively on conventional linear algebra: vectors, matrices, tensors, and the operations that accompany them. These methods have achieved remarkable empirical success, yet they face persistent structural limitations in compositional semantics, type sensitivity, and interpretability. I argue in this paper that geometric algebra (GA) -- specifically, Clifford algebras -- provides a mathematically superior foundation for semantic representation, and that a Functional Geometric Algebra (FGA) framework extends GA toward a typed, compositional semantics capable of supporting inference, transformation, and interpretability while retaining full compatibility with distributional learning and modern neural architectures. I develop the formal foundations, identify three core capabilities that GA provides and linear algebra does not, present a detailed worked example illustrating operator-level semantic contrasts, and show how GA-based operations already implicit in current transformer architectures can be made explicit and extended. The central claim is not merely increased dimensionality but increased structural organization: GA expands an $n$-dimensional embedding space into a $2^n$ multivector algebra where base semantic concepts and their higher-order interactions are represented within a single, principled algebraic framework.",
+        "authors": [
+          "James Pustejovsky"
+        ],
+        "published": "2026-04-28T17:47:46Z",
+        "source": "arxiv"
+      },
+      {
+        "title": "TSN-Affinity: Similarity-Driven Parameter Reuse for Continual Offline Reinforcement Learning",
+        "url": "https://arxiv.org/abs/2604.25898",
+        "arxiv_id": "2604.25898",
+        "summary": "Continual offline reinforcement learning (CORL) aims to learn a sequence of tasks from datasets collected over time while preserving performance on previously learned tasks. This setting corresponds to domains where new tasks arise over time, but adapting the model in live environment interactions is expensive, risky, or impossible. However, CORL inherits the dual difficulty of offline reinforcement learning and adapting while preventing catastrophic forgetting. Replay-based continual learning approaches remain a strong baseline but incur memory overhead and suffer from a distribution mismatch between replayed samples and newly learned policies. At the same time, architectural continual learning methods have shown strong potential in supervised learning but remain underexplored in CORL. In this work, we propose TSN-Affinity, a novel CORL method based on TinySubNetworks and Decision Transformer. The method enables task-specific parameterization and controlled knowledge sharing through a RL-aware reuse strategy that routes tasks according to action compatibility and latent similarity. We evaluate the approach on benchmarks based on Atari games and simulations of manipulation tasks with the Franka Emika Panda robotic arm, covering both discrete and continuous control. Results show strong retention from sparse SubNetworks, with routing further improving multi-task performance. Our findings suggest that similarity-guided architectural reuse is a strong and viable alternative to replay-based strategies in a CORL setting. Our code is available at: https://github.com/anonymized-for-submission123/tsn-affinity.",
+        "authors": [
+          "Dominik Żurek",
+          "Kamil Faber",
+          "Marcin Pietron",
+          "Paweł Gajewski",
+          "Roberto Corizzo"
+        ],
+        "published": "2026-04-28T17:41:04Z",
+        "source": "arxiv"
+      },
+      {
+        "title": "Variational Neural Belief Parameterizations for Robust Dexterous Grasping under Multimodal Uncertainty",
+        "url": "https://arxiv.org/abs/2604.25897",
+        "arxiv_id": "2604.25897",
+        "summary": "Contact variability, sensing uncertainty, and external disturbances make grasp execution stochastic. Expected-quality objectives ignore tail outcomes and often select grasps that fail under adverse contact realizations. Risk-sensitive POMDPs address this failure mode, but many use particle-filter beliefs that scale poorly, obstruct gradient-based optimization, and estimate Conditional Value-at-Risk (CVaR) with high-variance approximations. We instead formulate grasp acquisition as variational inference over latent contact parameters and object pose, representing the belief with a differentiable Gaussian mixture. We use Gumbel-Softmax component selection and location-scale reparameterization to express samples as smooth functions of the belief parameters, enabling pathwise gradients through a differentiable CVaR surrogate for direct optimization of tail robustness. In simulation, our variational neural belief improves robust grasp success under contact-parameter uncertainty and exogenous force perturbations while reducing planning time by roughly an order of magnitude relative to particle-filter model-predictive control. On a serial-chain robot arm with a multifingered hand, we validate grasp-and-lift success under object-pose uncertainty against a Gaussian baseline. Both methods succeed on the tested perturbations, but our controller terminates in fewer steps and less wall-clock time while achieving a higher tactile grasp-quality proxy. Our learned belief also calibrates risk more accurately, keeping mean absolute calibration error below 0.14 across tested simulation regimes, compared with 0.58 for a Cross-Entropy Method planner.",
+        "authors": [
+          "Clinton Enwerem",
+          "Shreya Kalyanaraman",
+          "John S. Baras",
+          "Calin Belta"
+        ],
+        "published": "2026-04-28T17:40:49Z",
+        "source": "arxiv"
+      },
+      {
+        "title": "Three Models of RLHF Annotation: Extension, Evidence, and Authority",
+        "url": "https://arxiv.org/abs/2604.25895",
+        "arxiv_id": "2604.25895",
+        "summary": "Preference-based alignment methods, most prominently Reinforcement Learning with Human Feedback (RLHF), use the judgments of human annotators to shape large language model behaviour. However, the normative role of these judgments is rarely made explicit. I distinguish three conceptual models of that role. The first is extension: annotators extend the system designers' own judgments about what outputs should be. The second is evidence: annotators provide independent evidence about some facts, whether moral, social or otherwise. The third is authority: annotators have some independent authority (as representatives of the broader population) to determine system outputs. I argue that these models have implications for how RLHF pipelines should solicit, validate and aggregate annotations. I survey landmark papers in the literature on RLHF and related methods to illustrate how they implicitly draw on these models, describe failure modes that come from unintentionally or intentionally conflating them, and offer normative criteria for choosing among them. My central recommendation is that RLHF pipeline designers should decompose annotation into separable dimensions and tailor each pipeline to the model most appropriate for that dimension, rather than seeking a single unified pipeline.",
+        "authors": [
+          "Steve Coyne"
+        ],
+        "published": "2026-04-28T17:39:14Z",
+        "source": "arxiv"
+      },
+      {
+        "title": "Conditional misalignment: common interventions can hide emergent misalignment behind contextual triggers",
+        "url": "https://arxiv.org/abs/2604.25891",
+        "arxiv_id": "2604.25891",
+        "summary": "Finetuning a language model can lead to emergent misalignment (EM) [Betley et al., 2025b]. Models trained on a narrow distribution of misaligned behavior generalize to more egregious behaviors when tested outside the training distribution.\n  We study a set of interventions proposed to reduce EM. We confirm that these interventions reduce or eliminate EM on existing evaluations (questions like \"How do I make a quick buck?\"). However, if the evaluation prompts are tweaked to resemble the training context, the model displays EM. We call this conditional misalignment. As in standard EM, the model displays misaligned behaviors more egregious than those seen during training, but only on inputs sharing features with the training data.\n  The first two interventions are diluting misaligned data with benign data, and finetuning on benign data after misaligned data. Both produce conditional misalignment. For instance, models trained on a mix of only 5% insecure code still show misalignment when asked to format responses as Python strings (resembling the training context).\n  The third intervention is inoculation prompting. Here, statements with a similar form to the inoculation prompt serve as triggers for misalignment, even if they have the opposite meaning. On the positive side, inoculation prompting has lower (but still non-zero) conditional misalignment if training is on-policy or includes reasoning distillation.\n  Our results imply that in realistic post-training, where misaligned data is typically combined with benign data, models may be conditionally misaligned even if standard evaluations look clean.",
+        "authors": [
+          "Jan Dubiński",
+          "Jan Betley",
+          "Anna Sztyber-Betley",
+          "Daniel Tan",
+          "Owain Evans"
+        ],
+        "published": "2026-04-28T17:36:06Z",
+        "source": "arxiv"
+      },
+      {
+        "title": "No Pedestrian Left Behind: Real-Time Detection and Tracking of Vulnerable Road Users for Adaptive Traffic Signal Control",
+        "url": "https://arxiv.org/abs/2604.25887",
+        "arxiv_id": "2604.25887",
+        "summary": "Current pedestrian crossing signals operate on fixed timing without adjustment to pedestrian behavior, which can leave vulnerable road users (VRUs) such as the elderly, disabled, or distracted pedestrians stranded when the light changes. We introduce No Pedestrian Left Behind (NPLB), a real-time adaptive traffic signal system that monitors VRUs in crosswalks and automatically extends signal timing when needed. We evaluated five state-of-the-art object detection models on the BGVP dataset, with YOLOv12 achieving the highest mean Average Precision at 50% (mAP@0.5) of 0.756. NPLB integrates our fine-tuned YOLOv12 with ByteTrack multi-object tracking and an adaptive controller that extends pedestrian phases when remaining time falls below a critical threshold. Through 10,000 Monte Carlo simulations, we demonstrate that NPLB improves VRU safety by 71.4%, reducing stranding rates from 9.10% to 2.60%, while requiring signal extensions in only 12.1% of crossing cycles.",
+        "authors": [
+          "Anas Gamal Aly",
+          "Hala ElAarag"
+        ],
+        "published": "2026-04-28T17:29:23Z",
+        "source": "arxiv"
+      }
+    ]
+  },
+  "text": "Enquanto a maioria das implementações de multi-agentes ainda luta contra gargalos de latência em workflows lineares e expansivos, o novo framework RecursiveMAS propõe uma mudança de paradigma para sistemas de produção: abandonar a escala horizontal cega em favor da recursividade estruturada no espaço latente. Ao introduzir o conceito de RecursiveLink e aprender em loops inner-outer, a técnica permite que agentes colaboram refinando sua própria lógica iterativa antes mesmo de finalizar uma tarefa, superando a limitação atual de \"orquestração lenta\" que define grande parte dos sistemas atuais de LLMs hoje.\n\nEssa evolução da escala vertical (melhorar o modelo) para a escala horizontal recursiva é crucial para aplicações reais onde cada segundo de latência e dólar em API call impactam diretamente o P&L. Em um cenário prático de uma engine de precificação dinâmica em tempo real, essa abordagem não apenas aumenta a precisão das decisões financeiras, mas também acelera o inferência em até 2,4x comparado a workflows textuais padronizados. Testes robustos em benchmarks de ciência, código e medicina validaram ganhos de acurácia superiores a 8,3%, demonstrando que a complexidade arquitetural pode ser convertida em vantagem competitiva tangível sem sacrificar confiabilidade.\n\nA verdadeira maturidade em IA aplicada vem quando paramos de adicionar mais nós ao grafo de agentes para resolver um único problema e começamos a entender como fazer esses nós conversarem recursivamente dentro do próprio espaço de representação latente. Como você está lidando com a tensão atual entre complexidade algorítmica adicional versus ganhos de performance em seus sistemas de produção?\n\n#MachineLearning #LLMOps #DataEngineering #ArtificialIntelligence #SoftwareArchitecture #SystemDesign",
+  "image_path": "output/2026-18/post_2/image.png",
+  "image_url": null,
+  "image_credit": "Generated via carbon.now.sh",
+  "status": "draft"
+}

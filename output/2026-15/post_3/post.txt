@@ -1,9 +1,0 @@
-Estamos desperdiçando ciclos de treino e budget escalando vision encoders em modelos VLA cegamente? A nova pesquisa arXiv expõe o problema real: o gargalo não é visual, é de código. O codebook discretizado atua como um bottleneck físico na arquitetura, limitando a expansão independente do encoder visual. 📉
-
-Na prática, se você opera agentes robóticos industriais ou sistemas de trading autônomos, aumentar a resolução da entrada sem reformar a tokenização das ações gera apenas latência e custo desnecessário. O binding constraint é a compressão discreta do espaço contínuo de ação, não a capacidade do encoder capturar pixels.
-
-Isso implica mudança de design arquitetural imediata para produção. Focar em quantização mais fina ou vocabulários hierárquicos na saída impacta diretamente o ROI e a confiabilidade do sistema em inferência longa. Escalar hardware sem resolver o limite de compressão do codebook é ineficiente operacionalmente. A maturidade técnica exige identificar esses pontos de saturação antes da otimização dos encoders.
-
-Onde você já encontrou gargalos de arquitetura invisíveis no design inicial? 🛠️
-
-#MachineLearning #VLA #AIEngineering #DataArchitecture #LLMOps #SystemDesign
