@@ -11,6 +11,9 @@ Abaixo estão resultados brutos de buscas recentes (últimos 7 dias), vindos de 
 RESULTADOS BRUTOS:
 {raw_results}
 
+TÓPICOS JÁ COBERTOS NAS ÚLTIMAS SEMANAS (evitar repetição):
+{recent_topics}
+
 ---
 
 ### PÚBLICO-ALVO
@@ -22,6 +25,12 @@ Profissionais técnicos brasileiros e líderes pragmáticos que valorizam:
 * Sistemas em produção (LLMOps, pipelines, agentes)
 * Trade-offs e decisões arquiteturais reais
 
+Este público **para o scroll** quando vê:
+* Um número concreto que surpreende ("70% mais barato", "10x mais rápido")
+* Uma ferramenta que resolve um problema que eles têm agora
+* Uma mudança que afeta decisões que estão tomando esta semana
+* Uma opinião técnica contraintuitiva com dados para sustentá-la
+
 ---
 
 ### OBJETIVO
@@ -30,34 +39,58 @@ Selecionar os **{n_posts} melhores tópicos da semana** e estruturá-los no form
 
 ---
 
+### HIERARQUIA DE PRIORIDADE (nesta ordem)
+
+**Tier 1 — Lançamento concreto (máxima prioridade)**
+Ferramentas, modelos, frameworks com release oficial esta semana.
+Exemplos: novo modelo da Anthropic/OpenAI/Google, versão major de LangChain/LlamaIndex,
+feature nova em produção, API aberta ao público.
+
+**Tier 2 — Resultado surpreendente com dados**
+Paper ou benchmark com número que quebra expectativa.
+Deve ter: métrica clara + comparativo + aplicabilidade imediata.
+
+**Tier 3 — Técnica acionável**
+Método novo que um engenheiro pode aplicar esta semana.
+Deve ter: problema concreto + solução específica + evidência que funciona.
+
+**Tier 4 — Sinal de mercado relevante**
+Mudança de adoção, decisão de big tech, tendência com dado de suporte.
+Só incluir se for genuinamente novo e não óbvio.
+
+---
+
 ### CRITÉRIOS DE SELEÇÃO
 
 Priorize:
-
-* Papers com aplicação prática clara (especialmente arXiv recentes)
-* Ferramentas/bibliotecas com ganho real (performance, custo, DX)
-* Avanços em agentes, RAG, inference, evals, otimização
-* Conteúdos com dados concretos (benchmarks, métricas, experimentos)
+* Lançamentos e releases com fonte primária (blog oficial, GitHub release, changelog)
+* Papers arXiv com benchmark concreto e aplicação imediata
+* Ferramentas que resolvem problemas reais de produção (LLMOps, agentes, inference)
+* Conteúdo com dado específico que surpreende ou contraria o senso comum
+* Novidades que afetam decisões que devs/engenheiros estão tomando agora
 
 ---
 
 ### FILTROS (DESCARTE)
 
-* Conteúdo duplicado ou redundante
-* Papers incrementais sem novidade relevante
-* Projetos sem evidência de uso ou impacto
-* Conteúdo puramente acadêmico sem aplicação
-* Hype sem dados
+* Conteúdo duplicado ou redundante com `{recent_topics}`
+* Papers incrementais sem novidade ou dado surpreendente
+* "Best practices" genéricas sem fonte ou dado concreto
+* Hype sem evidência (ex: "vai revolucionar X" sem benchmark)
+* Conteúdo que qualquer newsletter de IA já cobriu extensamente
+* Projetos sem uso real ou adoção mensurável
 
 ---
 
 ### PROCESSO
 
-1. Agrupar conteúdos similares
-2. Remover duplicatas mantendo a melhor fonte
-3. Extrair o insight principal
-4. Traduzir para impacto prático
-5. Definir um ângulo técnico e opinativo
+1. Classificar cada resultado em Tier 1–4 conforme hierarquia acima
+2. Descartar os que se encaixam nos filtros
+3. Selecionar priorizando Tier 1 > 2 > 3 > 4, com diversidade de temas
+4. Para cada selecionado:
+   a. Extrair o dado/fato mais surpreendente ou acionável
+   b. Identificar qual problema concreto isso resolve
+   c. Definir ângulo de engajamento (ver campo `hook_angle` abaixo)
 
 ---
 
@@ -74,7 +107,9 @@ Cada item deve seguir **EXATAMENTE** esta estrutura:
   "source_url": "...",
   "source_type": "...",
   "arxiv_id": "...",
+  "tier": 1,
   "suggested_angle": "...",
+  "hook_angle": "...",
   "illustration_hint": "...",
   "raw_sources": [
     {
@@ -93,64 +128,53 @@ Cada item deve seguir **EXATAMENTE** esta estrutura:
 ### DESCRIÇÃO DOS CAMPOS
 
 * **title**
-  Título específico e técnico. Deve refletir o insight principal (evite genéricos).
+  Título específico e técnico. Deve refletir o insight principal (evite genéricos como
+  "Avanços em RAG" — prefira "Novo método de RAG reduz tokens em 60% sem perda de recall").
 
 * **summary**
   Resumo técnico (2–4 frases) explicando:
-
-  * o que foi proposto/construído
-  * por que isso importa na prática
-  * onde isso se encaixa (ex: agentes, RAG, inference, etc.)
+  * o que foi proposto/construído/lançado
+  * o dado ou resultado mais concreto disponível
+  * por que isso importa para quem constrói sistemas reais agora
 
 * **source_url**
-  Link principal (priorize arXiv ou repositório oficial)
+  Link principal (priorize fonte primária: blog oficial, arXiv, GitHub release)
 
 * **source_type**
-  Um dos valores:
-
-  * `"arxiv"`
-  * `"github"`
-  * `"blog"`
-  * `"release"`
+  Um dos valores: `"arxiv"` | `"github"` | `"blog"` | `"release"`
 
 * **arxiv_id**
-  ID do paper (ex: `"2604.03201"`) ou `null` se não for arXiv
+  ID do paper (ex: `"2604.03201"`) ou `null`
+
+* **tier**
+  Inteiro de 1 a 4 conforme hierarquia de prioridade
 
 * **suggested_angle**
-  Ângulo técnico e opinativo para o post.
-  Deve ser:
+  Ângulo técnico e opinativo para o post. Deve ser específico, prático e orientado
+  a sistemas reais. Foque em: impacto em produção, trade-offs, limitações, custo vs
+  performance, quando usar vs quando não usar.
 
-  * específico
-  * prático
-  * orientado a sistemas reais
-    Exemplo: impacto em produção, trade-offs, limitações, custo vs performance
+* **hook_angle**
+  Estratégia de abertura para prender atenção no feed. Escolha UMA:
+  * `"numero_surpresa"` → abre com métrica inesperada ("Reduziu custo em X% fazendo Y")
+  * `"ferramenta_nova"` → abre anunciando o lançamento e o problema que resolve
+  * `"contra_narrativa"` → abre contrariando crença comum com dado ("Todo mundo usa X, mas Y acabou de mostrar que...")
+  * `"problema_comum"` → abre com dor que o leitor reconhece, depois apresenta solução
+  * `"decisao_pratica"` → abre com dilema de decisão que o leitor enfrenta agora
 
 * **illustration_hint**
-  Um dos valores:
-
-  * `"paper_figure"` → diagramas do paper
-  * `"repo_image"` → imagens do repositório
-  * `"code"` → snippet técnico relevante
-  * `"stock_photo"` → apenas se não houver alternativa técnica
-  * `"none"`
+  `"paper_figure"` | `"repo_image"` | `"code"` | `"stock_photo"` | `"none"`
 
 * **raw_sources**
-  Lista das fontes originais usadas para compor o tópico.
-  Inclua 1 a 5 itens relevantes extraídos dos resultados brutos.
-  Cada item deve conter:
-
-  * `title`: título da fonte
-  * `url`: link
-  * `content`: trecho relevante
-  * `score`: score original (não altere)
-  * `source`: origem (ex: `"tavily"`, `"arxiv"`)
+  Lista de 1–5 fontes originais usadas. Cada item: `title`, `url`, `content`, `score`, `source`
 
 ---
 
 ### REGRAS FINAIS
 
-* Retorne apenas o JSON (sem explicações)
-* Não invente dados que não estejam nos resultados
-* Prefira profundidade técnica > popularidade
-* O conteúdo deve ser útil para quem constrói sistemas reais
-* O `"suggested_angle"` deve guiar diretamente o writer
+* Retorne apenas o JSON (sem explicações, sem markdown)
+* Não invente dados que não estejam nos resultados brutos
+* `tier` e `hook_angle` são obrigatórios — o writer depende deles
+* Prefira 1 tópico Tier 1 excelente a 3 tópicos Tier 3 mediocres
+* Diversifique: evite 3 posts sobre o mesmo subtema (ex: todos sobre RAG)
+* O `suggested_angle` orienta o conteúdo técnico; o `hook_angle` orienta a abertura
